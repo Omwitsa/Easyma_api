@@ -12,16 +12,9 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class d_tmpTransEnquery
+    public partial class C__EFMigrationsHistory
     {
-        public long Id { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> TransDate { get; set; }
-        public string SNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<decimal> CR { get; set; }
-        public Nullable<decimal> DR { get; set; }
-        public Nullable<decimal> Bal { get; set; }
-        public string sacco { get; set; }
+        public string MigrationId { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

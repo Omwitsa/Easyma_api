@@ -55,5 +55,6 @@ namespace MobileBanking_API.Models
         public decimal midmonth { get; set; }
         public Nullable<decimal> Deduct12 { get; set; }
         public Nullable<decimal> Mpesa { get; set; }
+        public string SaccoCode { get; set; }
     }
 }

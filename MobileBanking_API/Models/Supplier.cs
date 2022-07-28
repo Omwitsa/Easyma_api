@@ -28,5 +28,6 @@ namespace MobileBanking_API.Models
         public string Trader { get; set; }
         public string BranchSupplier { get; set; }
         public string Names { get; set; }
+        public string saccocode { get; set; }
     }
 }

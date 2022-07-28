@@ -22,5 +22,6 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> Budgetted { get; set; }
         public Nullable<decimal> Variance { get; set; }
         public Nullable<System.DateTime> BudgetDate { get; set; }
+        public string SaccoCode { get; set; }
     }
 }

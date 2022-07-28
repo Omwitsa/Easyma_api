@@ -12,16 +12,18 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class d_tmpTransEnquery
+    public partial class d_Price
     {
         public long Id { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> TransDate { get; set; }
-        public string SNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<decimal> CR { get; set; }
-        public Nullable<decimal> DR { get; set; }
-        public Nullable<decimal> Bal { get; set; }
-        public string sacco { get; set; }
+        public string SaccoCode { get; set; }
+        public Nullable<System.DateTime> EDate { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string Products { get; set; }
+        public Nullable<decimal> SubsidyQty { get; set; }
+        public Nullable<decimal> SubsidyPrice { get; set; }
+        public string DrAccNo { get; set; }
+        public string CrAccNo { get; set; }
+        public string TransportDrAccNo { get; set; }
+        public string TransportCrAccNo { get; set; }
     }
 }

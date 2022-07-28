@@ -22,5 +22,6 @@ namespace MobileBanking_API.Models
         public double dispatch { get; set; }
         public string auditid { get; set; }
         public System.DateTime auditdate { get; set; }
+        public string saccocode { get; set; }
     }
 }

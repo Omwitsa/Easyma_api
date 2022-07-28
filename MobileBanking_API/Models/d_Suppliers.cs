@@ -28,6 +28,7 @@ namespace MobileBanking_API.Models
         public string Location { get; set; }
         public string Division { get; set; }
         public string District { get; set; }
+        public string County { get; set; }
         public Nullable<bool> Trader { get; set; }
         public Nullable<bool> active { get; set; }
         public Nullable<bool> Approval { get; set; }

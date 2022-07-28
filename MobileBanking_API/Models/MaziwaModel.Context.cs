@@ -25,6 +25,9 @@ namespace MobileBanking_API.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__EFMigrationsHistory> C__EFMigrationsHistory { get; set; }
+        public virtual DbSet<ag_Products> ag_Products { get; set; }
+        public virtual DbSet<ag_Receipts> ag_Receipts { get; set; }
         public virtual DbSet<assetcode> assetcodes { get; set; }
         public virtual DbSet<asset> assets { get; set; }
         public virtual DbSet<B2CDisbursementResponse> B2CDisbursementResponse { get; set; }
@@ -32,19 +35,25 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_CashPay> d_CashPay { get; set; }
         public virtual DbSet<d_DCodes> d_DCodes { get; set; }
         public virtual DbSet<d_Debtors> d_Debtors { get; set; }
+        public virtual DbSet<d_dispatch> d_dispatch { get; set; }
         public virtual DbSet<d_glposting> d_glposting { get; set; }
         public virtual DbSet<d_LPO> d_LPO { get; set; }
         public virtual DbSet<d_MainAccount> d_MainAccount { get; set; }
         public virtual DbSet<d_MaxShares> d_MaxShares { get; set; }
         public virtual DbSet<d_Payment> d_Payment { get; set; }
+        public virtual DbSet<d_Price> d_Price { get; set; }
         public virtual DbSet<d_Receipts> d_Receipts { get; set; }
         public virtual DbSet<d_Requisition> d_Requisition { get; set; }
         public virtual DbSet<d_SMSCompany> d_SMSCompany { get; set; }
         public virtual DbSet<d_Suppliers> d_Suppliers { get; set; }
         public virtual DbSet<d_Transporters> d_Transporters { get; set; }
+        public virtual DbSet<d_TransportersPayRoll> d_TransportersPayRoll { get; set; }
+        public virtual DbSet<Dispatch> Dispatches { get; set; }
         public virtual DbSet<dtproperty> dtproperties { get; set; }
         public virtual DbSet<GLSETUP> GLSETUPs { get; set; }
+        public virtual DbSet<ProductIntake> ProductIntakes { get; set; }
         public virtual DbSet<Receiptno> Receiptnoes { get; set; }
+        public virtual DbSet<stkPayResult> stkPayResults { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_menus> tbl_menus { get; set; }
@@ -57,12 +66,10 @@ namespace MobileBanking_API.Models
         public virtual DbSet<ag_Moringaintake> ag_Moringaintake { get; set; }
         public virtual DbSet<ag_MoringaProducts> ag_MoringaProducts { get; set; }
         public virtual DbSet<ag_paging> ag_paging { get; set; }
-        public virtual DbSet<ag_Products> ag_Products { get; set; }
         public virtual DbSet<ag_Products1> ag_Products1 { get; set; }
         public virtual DbSet<ag_Products3> ag_Products3 { get; set; }
         public virtual DbSet<ag_Products4> ag_Products4 { get; set; }
         public virtual DbSet<ag_Products5> ag_Products5 { get; set; }
-        public virtual DbSet<ag_Receipts> ag_Receipts { get; set; }
         public virtual DbSet<ag_Receipts1> ag_Receipts1 { get; set; }
         public virtual DbSet<ag_Receipts3> ag_Receipts3 { get; set; }
         public virtual DbSet<ag_Receiptsalesrep> ag_Receiptsalesrep { get; set; }
@@ -96,12 +103,14 @@ namespace MobileBanking_API.Models
         public virtual DbSet<CHEQUE> CHEQUES { get; set; }
         public virtual DbSet<COMBINE> COMBINEs { get; set; }
         public virtual DbSet<CONTRIB> CONTRIBs { get; set; }
+        public virtual DbSet<County> Counties { get; set; }
         public virtual DbSet<CUB> CUBs { get; set; }
         public virtual DbSet<Curr> Currs { get; set; }
         public virtual DbSet<CustomerBalance> CustomerBalances { get; set; }
         public virtual DbSet<CUSTOMERBALANCEOLD> CUSTOMERBALANCEOLDs { get; set; }
         public virtual DbSet<d_Approve1> d_Approve1 { get; set; }
         public virtual DbSet<d_AssignmentVehicle> d_AssignmentVehicle { get; set; }
+        public virtual DbSet<d_BankBranch> d_BankBranch { get; set; }
         public virtual DbSet<d_BANKS> d_BANKS { get; set; }
         public virtual DbSet<d_Bonus> d_Bonus { get; set; }
         public virtual DbSet<d_Bonus2> d_Bonus2 { get; set; }
@@ -116,7 +125,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_DailySummaryClerk> d_DailySummaryClerk { get; set; }
         public virtual DbSet<d_Debtors2> d_Debtors2 { get; set; }
         public virtual DbSet<d_Debtorsparchases2> d_Debtorsparchases2 { get; set; }
-        public virtual DbSet<d_dispatch> d_dispatch { get; set; }
         public virtual DbSet<d_Districts> d_Districts { get; set; }
         public virtual DbSet<d_Headers> d_Headers { get; set; }
         public virtual DbSet<d_incomestate> d_incomestate { get; set; }
@@ -165,12 +173,15 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_Transport> d_Transport { get; set; }
         public virtual DbSet<d_Transport_Deduc> d_Transport_Deduc { get; set; }
         public virtual DbSet<d_transport_standingorder> d_transport_standingorder { get; set; }
-        public virtual DbSet<d_TransportersPayRoll> d_TransportersPayRoll { get; set; }
         public virtual DbSet<d_Type> d_Type { get; set; }
         public virtual DbSet<d_VehicleTill> d_VehicleTill { get; set; }
         public virtual DbSet<DRanx> DRanges { get; set; }
         public virtual DbSet<DRAWNSTOCK> DRAWNSTOCKs { get; set; }
         public virtual DbSet<EasyMa_policies> EasyMa_policies { get; set; }
+        public virtual DbSet<ExcelDump> ExcelDumps { get; set; }
+        public virtual DbSet<FLMD> FLMDs { get; set; }
+        public virtual DbSet<FLMDCrop> FLMDCrops { get; set; }
+        public virtual DbSet<FLMDLand> FLMDLands { get; set; }
         public virtual DbSet<GLedger> GLedgers { get; set; }
         public virtual DbSet<GLTRANSACTION> GLTRANSACTIONS { get; set; }
         public virtual DbSet<GLTRANSACTIONS2> GLTRANSACTIONS2 { get; set; }
@@ -195,6 +206,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<sisold> sisolds { get; set; }
         public virtual DbSet<SMSSubscription> SMSSubscriptions { get; set; }
         public virtual DbSet<sno> snoes { get; set; }
+        public virtual DbSet<SubCounty> SubCounties { get; set; }
         public virtual DbSet<Swift_Messages> Swift_Messages { get; set; }
         public virtual DbSet<SYSPARAM> SYSPARAMs { get; set; }
         public virtual DbSet<tbbalance> tbbalances { get; set; }
@@ -208,5 +220,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<TransCode> TransCodes { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
         public virtual DbSet<UserAccounts1> UserAccounts1 { get; set; }
+        public virtual DbSet<Ward> Wards { get; set; }
     }
 }

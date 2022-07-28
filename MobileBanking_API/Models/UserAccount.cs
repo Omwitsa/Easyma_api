@@ -30,5 +30,6 @@ namespace MobileBanking_API.Models
         public string Branch { get; set; }
         public string sign { get; set; }
         public Nullable<int> Phone { get; set; }
+        public Nullable<bool> Reset { get; set; }
     }
 }

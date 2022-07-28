@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MobileBanking_API</RootNamespace>
     <AssemblyName>MobileBanking_API</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -72,7 +72,6 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
@@ -86,7 +85,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -94,7 +92,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -280,6 +277,9 @@
     <Compile Include="Models\CONTRIB.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\County.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CUB.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -290,6 +290,12 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CUSTOMERBALANCEOLD.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__EFMigrationsHistory.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dispatch.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DRanx.cs">
@@ -308,6 +314,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\d_AssignmentVehicle.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\d_BankBranch.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\d_BANKS.cs">
@@ -466,6 +475,9 @@
     <Compile Include="Models\d_PreSets.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\d_Price.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\d_Price2.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -550,6 +562,18 @@
     <Compile Include="Models\EasyMa_policies.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExcelDump.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FLMD.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FLMDCrop.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FLMDLand.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GLedger.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -613,6 +637,9 @@
     <Compile Include="Models\PettyCash.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductIntake.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QBMP.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -641,6 +668,12 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sno.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stkPayResult.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubCounty.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
@@ -698,6 +731,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAccounts1.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ward.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

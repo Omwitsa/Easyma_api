@@ -40,5 +40,6 @@ namespace MobileBanking_API.Models
         public Nullable<double> rate { get; set; }
         public Nullable<int> frate { get; set; }
         public string isfrate { get; set; }
+        public string SaccoCode { get; set; }
     }
 }

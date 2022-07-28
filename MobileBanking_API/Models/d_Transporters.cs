@@ -40,5 +40,6 @@ namespace MobileBanking_API.Models
         public long ttrate { get; set; }
         public string BR { get; set; }
         public string freezed { get; set; }
+        public string PaymenMode { get; set; }
     }
 }

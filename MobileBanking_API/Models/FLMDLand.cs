@@ -12,16 +12,17 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class d_tmpTransEnquery
+    public partial class FLMDLand
     {
         public long Id { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> TransDate { get; set; }
-        public string SNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<decimal> CR { get; set; }
-        public Nullable<decimal> DR { get; set; }
-        public Nullable<decimal> Bal { get; set; }
-        public string sacco { get; set; }
+        public string Sno { get; set; }
+        public string Location { get; set; }
+        public string PlotNumber { get; set; }
+        public Nullable<double> TotalAcres { get; set; }
+        public Nullable<double> AcresCrops { get; set; }
+        public Nullable<double> AcresBuilding { get; set; }
+        public Nullable<double> AcresLivestock { get; set; }
+        public Nullable<double> acresUnusedLand { get; set; }
+        public string SaccoCode { get; set; }
     }
 }

@@ -38,5 +38,6 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> Paid { get; set; }
         public Nullable<int> Completed { get; set; }
         public string salesrep { get; set; }
+        public string saccocode { get; set; }
     }
 }

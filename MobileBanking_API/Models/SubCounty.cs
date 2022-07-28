@@ -12,16 +12,14 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class d_tmpTransEnquery
+    public partial class SubCounty
     {
         public long Id { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> TransDate { get; set; }
-        public string SNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<decimal> CR { get; set; }
-        public Nullable<decimal> DR { get; set; }
-        public Nullable<decimal> Bal { get; set; }
-        public string sacco { get; set; }
+        public string Name { get; set; }
+        public string County { get; set; }
+        public string Contact { get; set; }
+        public bool Closed { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

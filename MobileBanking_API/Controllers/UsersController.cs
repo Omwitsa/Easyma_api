@@ -22,17 +22,24 @@ namespace MobileBanking_API.Controllers
 			try
 			{
 				syncData.Product = syncData?.Product ?? "";
-				var milkTime = $"set dateformat ymd Select auditdatetime from d_Milkintake where auditdatetime='{syncData.dates}'and QSupplied='{syncData.qty}' and SNo='{syncData.sup}'";
-				var milkintakeTime = db.Database.SqlQuery<String>(milkTime).FirstOrDefault();
+				var supplier = $"SET DATEFORMAT YMD SELECT Sno FROM ProductIntake WHERE Sno = '{syncData.Sup}' AND TransDate = '{syncData.Dates}' AND QSupplied = '{syncData.Qty}' AND ProductType = '{syncData.Product}' AND SaccoCode = '{syncData.SaccoCode}'";
+				var supplierNo = db.Database.SqlQuery<String>(supplier).FirstOrDefault();
 
-				if (String.IsNullOrEmpty(milkintakeTime))
+				if (String.IsNullOrEmpty(supplierNo))
 				{
-					var milkPrice = $"SELECT Price FROM d_price where products = '{syncData.Product}'";
-					var milkkPrice = db.Database.SqlQuery<Decimal>(milkPrice).FirstOrDefault();
-					double doubleValue = decimal.ToDouble(milkkPrice);
-					double value = Convert.ToDouble(syncData.qty);
-					double Milkprice = value * doubleValue;
-					var inserttransactions = $"set dateformat ymd INSERT INTO d_Milkintake(SNo,TransDate,QSupplied,auditdatetime,LOCATION,AuditId,PPU,PAmount,Transtime, Type)values('{syncData.sup}','{syncData.dates}','{syncData.qty}','{syncData.dates}','{syncData.branchhh}','{syncData.auditid}','{milkkPrice}','{Milkprice}','{DateTime.Now.ToShortTimeString()}', '{syncData.Product}')";
+					var products = $"SELECT * FROM d_Price WHERE Products = '{syncData.Product}' AND SaccoCode = '{syncData.SaccoCode}'";
+					var product = db.Database.SqlQuery<d_Price>(products).FirstOrDefault();
+					decimal.TryParse(syncData.Qty, out decimal qty);
+					var productPrice = qty * product.Price;
+					var balance = GetBalance(new ProductIntake
+					{
+						Sno = syncData.Sup,
+						SaccoCode = syncData.SaccoCode,
+						CR = productPrice,
+						DR = 0
+					});
+					var inserttransactions = $"SET DATEFORMAT YMD INSERT INTO ProductIntake([Sno],[TransDate],[TransTime],[ProductType],[QSupplied],[PPU],[CR],[DR],[Balance],[Description],[Paid],[Remarks],[TransactionType],[AuditId],[auditdatetime],[Branch],[SaccoCode],[DrAccNo],[CrAccNo]) " +
+                        $"VALUES('{syncData.Sup}','{syncData.Dates}','{DateTime.Now.TimeOfDay}','{syncData.Product}','{qty}','{product.Price}','{productPrice}','0','{balance}','Intake',0,'Uploaded','1','{syncData.Auditid}',GETDATE(),'{syncData.Branchhh}','{syncData.SaccoCode}','{product.DrAccNo}','{product.CrAccNo}')";
 					db.Database.ExecuteSqlCommand(inserttransactions);
 					return new ReturnData
 					{
@@ -58,6 +65,19 @@ namespace MobileBanking_API.Controllers
 					Message = "Sorry, An error occurred,Contact Administrator"
 				};
 			}
+		}
+
+		private decimal? GetBalance(ProductIntake productIntake)
+		{
+			var latestIntake = db.ProductIntakes.Where(i => i.Sno == productIntake.Sno && i.SaccoCode.ToUpper().Equals(productIntake.SaccoCode.ToUpper()))
+					.OrderByDescending(i => i.Id).FirstOrDefault();
+			if (latestIntake == null)
+				latestIntake = new ProductIntake();
+			latestIntake.Balance = latestIntake?.Balance ?? 0;
+			productIntake.DR = productIntake?.DR ?? 0;
+			productIntake.CR = productIntake?.CR ?? 0;
+			var balance = latestIntake.Balance + productIntake.CR - productIntake.DR;
+			return balance;
 		}
 
 		[Route("registerSupplier")]
@@ -139,11 +159,11 @@ namespace MobileBanking_API.Controllers
         }
 
 		[Route("getItems")]
-		public ReturnData GetItems()
+		public ReturnData GetItems(string saccoCode)
         {
             try
             {
-				var query = "SELECT Products FROM d_Price";
+				var query = "SELECT Products FROM d_Price WHERE SaccoCode = '" + saccoCode + "'";
 				var prices = db.Database.SqlQuery<string>(query).ToList();
 				return new ReturnData
 				{
@@ -151,7 +171,7 @@ namespace MobileBanking_API.Controllers
 					Data = prices
 				};
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 				return new ReturnData
 				{

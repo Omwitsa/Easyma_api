@@ -37,5 +37,6 @@ namespace MobileBanking_API.Models
         public Nullable<bool> RECON { get; set; }
         public int ReconID { get; set; }
         public Nullable<long> Run { get; set; }
+        public byte[] SaccoCode { get; set; }
     }
 }

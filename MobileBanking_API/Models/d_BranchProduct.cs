@@ -15,7 +15,7 @@ namespace MobileBanking_API.Models
     public partial class d_BranchProduct
     {
         public long id { get; set; }
-        public string BCode { get; set; }
+        public string saccocode { get; set; }
         public string BName { get; set; }
         public string auditid { get; set; }
         public Nullable<System.DateTime> auditdatetime { get; set; }

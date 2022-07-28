@@ -51,5 +51,6 @@ namespace MobileBanking_API.Models
         public bool isRearning { get; set; }
         public bool Issuspense { get; set; }
         public Nullable<long> Run { get; set; }
+        public string saccocode { get; set; }
     }
 }
