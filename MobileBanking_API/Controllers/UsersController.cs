@@ -38,9 +38,31 @@ namespace MobileBanking_API.Controllers
 						CR = productPrice,
 						DR = 0
 					});
+
+					var transDate = Convert.ToDateTime(syncData.Dates);
 					var inserttransactions = $"SET DATEFORMAT YMD INSERT INTO ProductIntake([Sno],[TransDate],[TransTime],[ProductType],[QSupplied],[PPU],[CR],[DR],[Balance],[Description],[Paid],[Remarks],[TransactionType],[AuditId],[auditdatetime],[Branch],[SaccoCode],[DrAccNo],[CrAccNo]) " +
-                        $"VALUES('{syncData.Sup}','{syncData.Dates}','{DateTime.Now.TimeOfDay}','{syncData.Product}','{qty}','{product.Price}','{productPrice}','0','{balance}','Intake',0,'Uploaded','1','{syncData.Auditid}',GETDATE(),'{syncData.Branchhh}','{syncData.SaccoCode}','{product.DrAccNo}','{product.CrAccNo}')";
+                        $"VALUES('{syncData.Sup}','{transDate.Date}','{transDate.TimeOfDay}','{syncData.Product}','{qty}','{product.Price}','{productPrice}','0','{balance}','Intake',0,'Uploaded','1','{syncData.Auditid}',GETDATE(),'{syncData.Branchhh}','{syncData.SaccoCode}','{product.DrAccNo}','{product.CrAccNo}')";
 					db.Database.ExecuteSqlCommand(inserttransactions);
+
+					var startDate = new DateTime(transDate.Year, transDate.Month, 1);
+					var endDate = startDate.AddMonths(1).AddDays(-1);
+					var commulated = db.ProductIntakes.Where(s => s.Sno == syncData.Sup && s.SaccoCode == syncData.SaccoCode
+					&& s.TransDate >= startDate && s.TransDate <= endDate).Sum(s => s.QSupplied);
+					var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == syncData.Sup && s.scode == syncData.SaccoCode);
+					db.Messages.Add(new Message
+					{
+						Telephone = suppliers.PhoneNo,
+						Content = $"You have supplied {qty} kgs. Your commulated {commulated}",
+						ProcessTime = DateTime.Now.ToString(),
+						MsgType = "Outbox",
+						Replied = false,
+						DateReceived = DateTime.Now,
+						Source = syncData.Auditid,
+						Code = syncData.SaccoCode
+					});
+
+					db.SaveChanges();
+
 					return new ReturnData
 					{
 						Success = true,
