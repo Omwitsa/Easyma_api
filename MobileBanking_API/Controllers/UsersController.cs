@@ -49,20 +49,10 @@ namespace MobileBanking_API.Controllers
 					var commulated = db.ProductIntakes.Where(s => s.Sno == syncData.Sup && s.SaccoCode == syncData.SaccoCode
 					&& s.TransDate >= startDate && s.TransDate <= endDate).Sum(s => s.QSupplied);
 					var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == syncData.Sup && s.scode == syncData.SaccoCode);
-					db.Messages.Add(new Message
-					{
-						Telephone = suppliers.PhoneNo,
-						Content = $"You have supplied {qty} kgs. Your commulated {commulated}",
-						ProcessTime = DateTime.Now.ToString(),
-						MsgType = "Outbox",
-						Replied = false,
-						DateReceived = DateTime.Now,
-						Source = syncData.Auditid,
-						Code = syncData.SaccoCode
-					});
-
-					db.SaveChanges();
-
+					var content = $"You have supplied {qty} kgs to {syncData.SaccoCode}. Your commulated {commulated + qty}";
+					var insertMessageQuery = $"INSERT INTO Messages(Telephone, [Content], ProcessTime, MsgType, Replied, DateReceived, Source, Code) " +
+                        $"VALUES('{suppliers.PhoneNo}', '{content}', GETDATE(), 'Outbox', 0, GETDATE(), '{syncData.Auditid}', '{syncData.SaccoCode}')";
+					db.Database.ExecuteSqlCommand(insertMessageQuery);
 					return new ReturnData
 					{
 						Success = true,
