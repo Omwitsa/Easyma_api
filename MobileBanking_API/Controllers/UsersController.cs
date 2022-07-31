@@ -53,6 +53,10 @@ namespace MobileBanking_API.Controllers
 					var insertMessageQuery = $"INSERT INTO Messages(Telephone, [Content], ProcessTime, MsgType, Replied, DateReceived, Source, Code) " +
                         $"VALUES('{suppliers.PhoneNo}', '{content}', GETDATE(), 'Outbox', 0, GETDATE(), '{syncData.Auditid}', '{syncData.SaccoCode}')";
 					db.Database.ExecuteSqlCommand(insertMessageQuery);
+
+					var transactionQuery = $"SET DATEFORMAT YMD INSERT INTO GLTRANSACTIONS (TransDate, Amount, DrAccNo, CrAccNo, DocumentNo, Source, TransDescript, AuditTime, AuditID, Transactionno, SaccoCode) " +
+                        $"VALUES({syncData.Dates}, '{productPrice}', '{product.DrAccNo}', '{product.CrAccNo}', '{syncData.Sup}', '{syncData.Sup}', 'Intake', GETDATE(), '{syncData.Auditid}', '{syncData.Auditid}{DateTime.Now}', '{syncData.SaccoCode}')";
+					db.Database.ExecuteSqlCommand(transactionQuery);
 					return new ReturnData
 					{
 						Success = true,
