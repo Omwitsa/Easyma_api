@@ -12,16 +12,12 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DRanx
+    public partial class SharesCategory
     {
         public long Id { get; set; }
-        public string Deduction { get; set; }
-        public decimal From { get; set; }
-        public decimal To { get; set; }
-        public decimal rate { get; set; }
-        public bool Percentage { get; set; }
-        public System.DateTime Audittime { get; set; }
-        public string auditid { get; set; }
+        public string Name { get; set; }
+        public Nullable<decimal> MinAmount { get; set; }
+        public Nullable<decimal> MaxAmount { get; set; }
         public string SaccoCode { get; set; }
     }
 }

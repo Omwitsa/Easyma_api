@@ -12,13 +12,15 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class stkPayResult
+    public partial class clinic_stkpayresults
     {
         public long Id { get; set; }
         public string MerchantRequestID { get; set; }
-        public string TopicId { get; set; }
         public string CheckoutRequestID { get; set; }
+        public string MemberNo { get; set; }
+        public string TopicId { get; set; }
         public Nullable<bool> IsCompleted { get; set; }
+        public Nullable<bool> Used { get; set; }
         public Nullable<int> ResultCode { get; set; }
         public string ResultDesc { get; set; }
         public string Amount { get; set; }

@@ -36,5 +36,6 @@ namespace MobileBanking_API.Models
         public decimal amount { get; set; }
         public Nullable<decimal> PREMIUM { get; set; }
         public Nullable<decimal> spu { get; set; }
+        public string SaccoCode { get; set; }
     }
 }

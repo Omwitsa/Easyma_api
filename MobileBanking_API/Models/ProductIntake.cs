@@ -34,5 +34,6 @@ namespace MobileBanking_API.Models
         public string SaccoCode { get; set; }
         public string DrAccNo { get; set; }
         public string CrAccNo { get; set; }
+        public Nullable<bool> Posted { get; set; }
     }
 }

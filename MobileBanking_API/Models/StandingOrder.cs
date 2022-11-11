@@ -12,16 +12,18 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DRanx
+    public partial class StandingOrder
     {
         public long Id { get; set; }
-        public string Deduction { get; set; }
-        public decimal From { get; set; }
-        public decimal To { get; set; }
-        public decimal rate { get; set; }
-        public bool Percentage { get; set; }
-        public System.DateTime Audittime { get; set; }
-        public string auditid { get; set; }
+        public string Sno { get; set; }
+        public Nullable<System.DateTime> TransDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
+        public Nullable<int> Duration { get; set; }
+        public Nullable<decimal> Amount { get; set; }
+        public string Description { get; set; }
+        public string AuditId { get; set; }
+        public Nullable<System.DateTime> Auditdatetime { get; set; }
         public string SaccoCode { get; set; }
     }
 }

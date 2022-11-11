@@ -250,6 +250,15 @@
     <Compile Include="Models\barcodeitem.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bill.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BillDetail.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BillJournal.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Blacklist.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -271,6 +280,18 @@
     <Compile Include="Models\CHEQUE.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CInvoice.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CInvoiceDetail.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CInvoiceJournal.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\clinic_stkpayresults.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\COMBINE.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -280,10 +301,25 @@
     <Compile Include="Models\County.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CProduct.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreditNote.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreditNoteDetail.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreditNoteJournal.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CUB.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Curr.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerBalance.cs">
@@ -295,7 +331,16 @@
     <Compile Include="Models\C__EFMigrationsHistory.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Deduction.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dispatch.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DispatchBalancing.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DRanx.cs">
@@ -538,6 +583,9 @@
     <Compile Include="Models\d_Transport.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\d_TransporterIntake.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\d_Transporters.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -560,6 +608,18 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EasyMa_policies.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpBenefit.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeesDed.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntitlementType.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ExcelDump.cs">
@@ -631,6 +691,9 @@
     <Compile Include="Models\PaymentBooking.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PaySlip.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PERIOD.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -652,6 +715,15 @@
     <Compile Include="Models\Receiptno.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Refund.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RefundDetail.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RefundJournal.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\reportpath.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -659,6 +731,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Session.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SharesCategory.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sisold.cs">
@@ -670,7 +745,7 @@
     <Compile Include="Models\sno.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\stkPayResult.cs">
+    <Compile Include="Models\StandingOrder.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SubCounty.cs">
@@ -686,6 +761,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYSPARAM.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tax.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbbalance.cs">
@@ -724,6 +802,9 @@
     <Compile Include="Models\Transporter.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportersBalancing.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Transporters_.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -731,6 +812,12 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAccounts1.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vender.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VProduct.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ward.cs">

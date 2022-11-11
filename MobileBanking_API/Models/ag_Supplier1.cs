@@ -14,6 +14,7 @@ namespace MobileBanking_API.Models
     
     public partial class ag_Supplier1
     {
+        public long id { get; set; }
         public string SupplierID { get; set; }
         public string CompanyName { get; set; }
         public string ContactPerson { get; set; }
@@ -22,5 +23,6 @@ namespace MobileBanking_API.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        public string saccocode { get; set; }
     }
 }

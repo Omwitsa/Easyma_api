@@ -12,16 +12,16 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DRanx
+    public partial class TransportersBalancing
     {
         public long Id { get; set; }
-        public string Deduction { get; set; }
-        public decimal From { get; set; }
-        public decimal To { get; set; }
-        public decimal rate { get; set; }
-        public bool Percentage { get; set; }
-        public System.DateTime Audittime { get; set; }
-        public string auditid { get; set; }
-        public string SaccoCode { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public string Transporter { get; set; }
+        public string Quantity { get; set; }
+        public string ActualBal { get; set; }
+        public string Rejects { get; set; }
+        public string Spillage { get; set; }
+        public string Varriance { get; set; }
+        public string Code { get; set; }
     }
 }

@@ -56,5 +56,10 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> Deduct12 { get; set; }
         public Nullable<decimal> Mpesa { get; set; }
         public string SaccoCode { get; set; }
+        public string Branch { get; set; }
+        public Nullable<decimal> CLINICAL { get; set; }
+        public Nullable<decimal> AI { get; set; }
+        public Nullable<decimal> Tractor { get; set; }
+        public Nullable<decimal> CurryForward { get; set; }
     }
 }

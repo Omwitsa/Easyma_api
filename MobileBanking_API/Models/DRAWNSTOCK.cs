@@ -30,5 +30,6 @@ namespace MobileBanking_API.Models
         public string Buying { get; set; }
         public Nullable<int> AI { get; set; }
         public string commission { get; set; }
+        public string saccocode { get; set; }
     }
 }

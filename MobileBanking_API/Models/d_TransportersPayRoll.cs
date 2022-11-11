@@ -31,6 +31,7 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> NetPay { get; set; }
         public string BankName { get; set; }
         public string AccNo { get; set; }
+        public string BBranch { get; set; }
         public string Branch { get; set; }
         public Nullable<int> MMonth { get; set; }
         public Nullable<int> YYear { get; set; }
@@ -41,5 +42,9 @@ namespace MobileBanking_API.Models
         public Nullable<int> frate { get; set; }
         public string isfrate { get; set; }
         public string SaccoCode { get; set; }
+        public Nullable<decimal> Tractor { get; set; }
+        public Nullable<decimal> CLINICAL { get; set; }
+        public Nullable<decimal> VARIANCE { get; set; }
+        public Nullable<decimal> CurryForward { get; set; }
     }
 }

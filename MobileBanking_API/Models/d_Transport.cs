@@ -26,5 +26,6 @@ namespace MobileBanking_API.Models
         public string isfrate { get; set; }
         public string saccocode { get; set; }
         public string producttype { get; set; }
+        public string Branch { get; set; }
     }
 }

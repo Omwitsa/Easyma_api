@@ -19,5 +19,6 @@ namespace MobileBanking_API.Models
         public string LName { get; set; }
         public string AuditId { get; set; }
         public Nullable<System.DateTime> Auditdatetime { get; set; }
+        public string Branch { get; set; }
     }
 }

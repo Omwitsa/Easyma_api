@@ -14,6 +14,7 @@ namespace MobileBanking_API.Models
     
     public partial class ag_Products4
     {
+        public long Id { get; set; }
         public string p_code { get; set; }
         public string p_name { get; set; }
         public Nullable<double> S_No { get; set; }
@@ -34,5 +35,7 @@ namespace MobileBanking_API.Models
         public string DRACCNO { get; set; }
         public string CRACCNO { get; set; }
         public Nullable<int> AI { get; set; }
+        public string saccocode { get; set; }
+        public Nullable<bool> Approved { get; set; }
     }
 }

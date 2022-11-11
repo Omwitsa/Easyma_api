@@ -12,16 +12,15 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DRanx
+    public partial class CInvoiceJournal
     {
-        public long Id { get; set; }
-        public string Deduction { get; set; }
-        public decimal From { get; set; }
-        public decimal To { get; set; }
-        public decimal rate { get; set; }
-        public bool Percentage { get; set; }
-        public System.DateTime Audittime { get; set; }
-        public string auditid { get; set; }
-        public string SaccoCode { get; set; }
+        public System.Guid Id { get; set; }
+        public Nullable<System.Guid> CInvoiceId { get; set; }
+        public string GlAccount { get; set; }
+        public string Label { get; set; }
+        public Nullable<decimal> Debit { get; set; }
+        public Nullable<decimal> Credit { get; set; }
+    
+        public virtual CInvoice CInvoice { get; set; }
     }
 }
