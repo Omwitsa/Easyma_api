@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MobileBanking_API.Controllers
 {
-    public class SyncData
+    public class ProductIntake
     {
         public string Sup { get; set; }
         public string Qty { get; set; }
