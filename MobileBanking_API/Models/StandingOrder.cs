@@ -25,5 +25,6 @@ namespace MobileBanking_API.Models
         public string AuditId { get; set; }
         public Nullable<System.DateTime> Auditdatetime { get; set; }
         public string SaccoCode { get; set; }
+        public string Zone { get; set; }
     }
 }

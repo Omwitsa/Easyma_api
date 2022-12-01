@@ -52,6 +52,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_LPO> d_LPO { get; set; }
         public virtual DbSet<d_MainAccount> d_MainAccount { get; set; }
         public virtual DbSet<d_MaxShares> d_MaxShares { get; set; }
+        public virtual DbSet<d_MilkQuality> d_MilkQuality { get; set; }
         public virtual DbSet<d_Payment> d_Payment { get; set; }
         public virtual DbSet<d_Price> d_Price { get; set; }
         public virtual DbSet<d_Receipts> d_Receipts { get; set; }
@@ -160,7 +161,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_Milkintake1> d_Milkintake1 { get; set; }
         public virtual DbSet<d_Milkintake2> d_Milkintake2 { get; set; }
         public virtual DbSet<d_milkintakechange> d_milkintakechange { get; set; }
-        public virtual DbSet<d_MilkQuality> d_MilkQuality { get; set; }
         public virtual DbSet<d_MilkVehicle> d_MilkVehicle { get; set; }
         public virtual DbSet<d_Mpayement> d_Mpayement { get; set; }
         public virtual DbSet<d_Outlet> d_Outlet { get; set; }
@@ -216,6 +216,8 @@ namespace MobileBanking_API.Models
         public virtual DbSet<LOGIN> LOGINS { get; set; }
         public virtual DbSet<Matchedreport> Matchedreports { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<milkcontrol2> milkcontrol2 { get; set; }
+        public virtual DbSet<Milktransfer> Milktransfers { get; set; }
         public virtual DbSet<Mpesab> Mpesabs { get; set; }
         public virtual DbSet<param> @params { get; set; }
         public virtual DbSet<passwordhistory> passwordhistories { get; set; }
@@ -227,6 +229,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<Qsetup> Qsetups { get; set; }
         public virtual DbSet<ReceiptBooking> ReceiptBookings { get; set; }
         public virtual DbSet<reportpath> reportpaths { get; set; }
+        public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<serialno> serialnoes { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<SharesCategory> SharesCategories { get; set; }
@@ -250,5 +253,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
         public virtual DbSet<UserAccounts1> UserAccounts1 { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
+        public virtual DbSet<Zone> Zones { get; set; }
     }
 }

@@ -23,5 +23,6 @@ namespace MobileBanking_API.Models
         public string Spillage { get; set; }
         public string Varriance { get; set; }
         public string Code { get; set; }
+        public string Branch { get; set; }
     }
 }

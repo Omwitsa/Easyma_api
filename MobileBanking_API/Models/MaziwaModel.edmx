@@ -307,6 +307,7 @@ warning 6002: The table/view 'MORINGA.dbo.ag_Products5' does not have a primary 
           <Property Name="Completed" Type="int" />
           <Property Name="salesrep" Type="nvarchar" MaxLength="50" />
           <Property Name="saccocode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.ag_Receipts1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2289,14 +2290,12 @@ warning 6002: The table/view 'MORINGA.dbo.d_milkintakechange' does not have a pr
           <Property Name="userid" Type="nvarchar" MaxLength="50" />
           <Property Name="auditdatetime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MORINGA.dbo.d_MilkQuality' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="d_MilkQuality">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Sno" Type="bigint" />
+          <Property Name="Sno" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RejDate" Type="datetime" />
           <Property Name="ApproxKgs" Type="float" />
           <Property Name="DeKgs" Type="float" />
@@ -2316,6 +2315,9 @@ warning 6002: The table/view 'MORINGA.dbo.d_MilkQuality' does not have a primary
           <Property Name="RejReasons" Type="varchar" MaxLength="255" />
           <Property Name="auditid" Type="varchar" MaxLength="50" />
           <Property Name="auditdatetime" Type="datetime" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Antibiotic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.d_MilkVehicle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2518,11 +2520,12 @@ warning 6002: The table/view 'MORINGA.dbo.d_Payroll' does not have a primary key
         <EntityType Name="d_Payroll">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="SNo" />
             <PropertyRef Name="Tchp" />
             <PropertyRef Name="midmonth" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SNo" Type="int" />
+          <Property Name="SNo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Transport" Type="money" />
           <Property Name="Agrovet" Type="money" />
           <Property Name="Bonus" Type="money" />
@@ -2823,6 +2826,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_Shares' does not have a primary key 
           <Property Name="PREMIUM" Type="money" />
           <Property Name="spu" Type="money" />
           <Property Name="SaccoCode" Type="varchar" MaxLength="50" />
+          <Property Name="zone" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="d_SMSCompany">
           <Key>
@@ -2910,7 +2914,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_supplier_standingorder' does not hav
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LOCAL_ID" Type="bigint" />
-          <Property Name="SNo" Type="bigint" Nullable="false" />
+          <Property Name="SNo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Regdate" Type="datetime" />
           <Property Name="IdNo" Type="varchar" MaxLength="50" />
           <Property Name="Names" Type="varchar" MaxLength="85" />
@@ -2965,6 +2969,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_supplier_standingorder' does not hav
           <Property Name="mass" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="status1" Type="bigint" />
           <Property Name="Run" Type="bigint" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.d_SupplyDeducTrans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3033,6 +3038,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_tmpTransEnquery' does not have a pri
           <Property Name="DR" Type="money" />
           <Property Name="Bal" Type="money" />
           <Property Name="sacco" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.d_trans_frate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3089,10 +3095,11 @@ warning 6002: The table/view 'MORINGA.dbo.d_Transport' does not have a primary k
         <EntityType Name="d_Transport">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="Sno" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Trans_Code" Type="char" MaxLength="10" />
-          <Property Name="Sno" Type="bigint" />
+          <Property Name="Sno" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Rate" Type="money" />
           <Property Name="startdate" Type="datetime" />
           <Property Name="Active" Type="bit" />
@@ -3103,6 +3110,8 @@ warning 6002: The table/view 'MORINGA.dbo.d_Transport' does not have a primary k
           <Property Name="saccocode" Type="nvarchar" MaxLength="50" />
           <Property Name="producttype" Type="nvarchar" MaxLength="50" />
           <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Morning" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.d_Transport_Deduc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3149,7 +3158,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_transport_standingorder' does not ha
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="ActualKg" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ActualKg" Type="money" />
           <Property Name="Date" Type="datetime" />
           <Property Name="SaccoCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Branch" Type="nvarchar" MaxLength="50" />
@@ -3187,6 +3196,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_transport_standingorder' does not ha
           <Property Name="BR" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="freezed" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="PaymenMode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Route" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="d_TransportersPayRoll">
           <Key>
@@ -3539,6 +3549,8 @@ warning 6002: The table/view 'MORINGA.dbo.ExcelDump' does not have a primary key
           <Property Name="ProductType" Type="varchar" MaxLength="50" />
           <Property Name="Quantity" Type="money" />
           <Property Name="TransDate" Type="datetime" />
+          <Property Name="TransCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.FLMD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3891,6 +3903,42 @@ warning 6002: The table/view 'MORINGA.dbo.Messages' does not have a primary key 
           <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'MORINGA.dbo.milkcontrol2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="milkcontrol2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Intake" Type="money" />
+          <Property Name="SQuantity" Type="money" />
+          <Property Name="Reject" Type="money" />
+          <Property Name="transdate" Type="date" />
+          <Property Name="auditid" Type="nvarchar" MaxLength="50" />
+          <Property Name="cfa" Type="money" />
+          <Property Name="Spillage" Type="money" />
+          <Property Name="FromStation" Type="money" />
+          <Property Name="Tostation" Type="money" />
+          <Property Name="Bf" Type="money" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MORINGA.dbo.Milktransfer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Milktransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transdate" Type="date" />
+          <Property Name="fromStation" Type="money" />
+          <Property Name="Tostation" Type="money" />
+          <Property Name="FromBranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToBranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="auditid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Intake" Type="money" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.Mpesab' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Mpesab">
           <Key>
@@ -4096,6 +4144,8 @@ warning 6002: The table/view 'MORINGA.dbo.PettyCash' does not have a primary key
           <Property Name="DrAccNo" Type="nvarchar" MaxLength="50" />
           <Property Name="CrAccNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Posted" Type="bit" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MornEvening" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.QBMPS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4304,6 +4354,16 @@ warning 6002: The table/view 'MORINGA.dbo.reportpath' does not have a primary ke
           <Property Name="reportpath" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'MORINGA.dbo.Routes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="scode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.serialno' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="serialno">
           <Key>
@@ -4484,7 +4544,8 @@ warning 6002: The table/view 'MORINGA.dbo.StandingOrder' does not have a primary
           <Property Name="Description" Type="varchar" MaxLength="200" />
           <Property Name="AuditId" Type="varchar" MaxLength="50" />
           <Property Name="Auditdatetime" Type="datetime" />
-          <Property Name="SaccoCode" Type="varchar" MaxLength="50" />
+          <Property Name="SaccoCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'MORINGA.dbo.Status' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -4910,6 +4971,7 @@ warning 6002: The table/view 'MORINGA.dbo.TransportersBalancings' does not have 
           <Property Name="Spillage" Type="nvarchar" MaxLength="50" />
           <Property Name="Varriance" Type="nvarchar" MaxLength="50" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'MORINGA.dbo.TransportersPayQuery' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -4957,6 +5019,7 @@ warning 6002: The table/view 'MORINGA.dbo.UserAccounts' does not have a primary 
           <Property Name="sign" Type="varchar" MaxLength="100" />
           <Property Name="Phone" Type="int" />
           <Property Name="Reset" Type="bit" />
+          <Property Name="AccessLevel" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MORINGA.dbo.UserAccounts1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5133,6 +5196,16 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="CreatedOn" Type="smalldatetime" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Zones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_BillDetails_Bills_BillId">
           <End Role="Bills" Type="Self.Bills" Multiplicity="0..1" />
           <End Role="BillDetails" Type="Self.BillDetails" Multiplicity="*" />
@@ -5257,6 +5330,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="d_LPO" EntityType="Self.d_LPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="d_MainAccount" EntityType="Self.d_MainAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="d_MaxShares" EntityType="Self.d_MaxShares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="d_MilkQuality" EntityType="Self.d_MilkQuality" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="d_Payment" EntityType="Self.d_Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="d_Price" EntityType="Self.d_Price" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="d_Receipts" EntityType="Self.d_Receipts" Schema="dbo" store:Type="Tables" />
@@ -6650,31 +6724,6 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [d_milkintakechange].[auditdatetime] AS [auditdatetime]
     FROM [dbo].[d_milkintakechange] AS [d_milkintakechange]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="d_MilkQuality" EntityType="Self.d_MilkQuality" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [d_MilkQuality].[id] AS [id], 
-    [d_MilkQuality].[Sno] AS [Sno], 
-    [d_MilkQuality].[RejDate] AS [RejDate], 
-    [d_MilkQuality].[ApproxKgs] AS [ApproxKgs], 
-    [d_MilkQuality].[DeKgs] AS [DeKgs], 
-    [d_MilkQuality].[ContCpcity] AS [ContCpcity], 
-    [d_MilkQuality].[TTransporter] AS [TTransporter], 
-    [d_MilkQuality].[Conttype] AS [Conttype], 
-    [d_MilkQuality].[TransMode] AS [TransMode], 
-    [d_MilkQuality].[Organoleptic] AS [Organoleptic], 
-    [d_MilkQuality].[Rez] AS [Rez], 
-    [d_MilkQuality].[Lact] AS [Lact], 
-    [d_MilkQuality].[PlateCount] AS [PlateCount], 
-    [d_MilkQuality].[Alcohol] AS [Alcohol], 
-    [d_MilkQuality].[TimeIn] AS [TimeIn], 
-    [d_MilkQuality].[TimeOut] AS [TimeOut], 
-    [d_MilkQuality].[PCheck] AS [PCheck], 
-    [d_MilkQuality].[Dramsk] AS [Dramsk], 
-    [d_MilkQuality].[RejReasons] AS [RejReasons], 
-    [d_MilkQuality].[auditid] AS [auditid], 
-    [d_MilkQuality].[auditdatetime] AS [auditdatetime]
-    FROM [dbo].[d_MilkQuality] AS [d_MilkQuality]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="d_MilkVehicle" EntityType="Self.d_MilkVehicle" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [d_MilkVehicle].[id] AS [id], 
@@ -7017,7 +7066,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [d_Shares].[amount] AS [amount], 
     [d_Shares].[PREMIUM] AS [PREMIUM], 
     [d_Shares].[spu] AS [spu], 
-    [d_Shares].[SaccoCode] AS [SaccoCode]
+    [d_Shares].[SaccoCode] AS [SaccoCode], 
+    [d_Shares].[zone] AS [zone]
     FROM [dbo].[d_Shares] AS [d_Shares]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="d_smssettings" EntityType="Self.d_smssettings" store:Type="Tables" store:Schema="dbo">
@@ -7127,7 +7177,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [d_tmpTransEnquery].[CR] AS [CR], 
     [d_tmpTransEnquery].[DR] AS [DR], 
     [d_tmpTransEnquery].[Bal] AS [Bal], 
-    [d_tmpTransEnquery].[sacco] AS [sacco]
+    [d_tmpTransEnquery].[sacco] AS [sacco], 
+    [d_tmpTransEnquery].[Branch] AS [Branch]
     FROM [dbo].[d_tmpTransEnquery] AS [d_tmpTransEnquery]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="d_trans_frate" EntityType="Self.d_trans_frate" store:Type="Tables" store:Schema="dbo">
@@ -7183,7 +7234,9 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [d_Transport].[isfrate] AS [isfrate], 
     [d_Transport].[saccocode] AS [saccocode], 
     [d_Transport].[producttype] AS [producttype], 
-    [d_Transport].[Branch] AS [Branch]
+    [d_Transport].[Branch] AS [Branch], 
+    [d_Transport].[Zone] AS [Zone], 
+    [d_Transport].[Morning] AS [Morning]
     FROM [dbo].[d_Transport] AS [d_Transport]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="d_Transport_Deduc" EntityType="Self.d_Transport_Deduc" store:Type="Tables" store:Schema="dbo">
@@ -7329,7 +7382,9 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [ExcelDump].[Sno] AS [Sno], 
     [ExcelDump].[ProductType] AS [ProductType], 
     [ExcelDump].[Quantity] AS [Quantity], 
-    [ExcelDump].[TransDate] AS [TransDate]
+    [ExcelDump].[TransDate] AS [TransDate], 
+    [ExcelDump].[TransCode] AS [TransCode], 
+    [ExcelDump].[Branch] AS [Branch]
     FROM [dbo].[ExcelDump] AS [ExcelDump]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="FLMD" EntityType="Self.FLMD" store:Type="Tables" store:Schema="dbo">
@@ -7528,6 +7583,36 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [Messages].[Code] AS [Code]
     FROM [dbo].[Messages] AS [Messages]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="milkcontrol2" EntityType="Self.milkcontrol2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [milkcontrol2].[Id] AS [Id], 
+    [milkcontrol2].[Intake] AS [Intake], 
+    [milkcontrol2].[SQuantity] AS [SQuantity], 
+    [milkcontrol2].[Reject] AS [Reject], 
+    [milkcontrol2].[transdate] AS [transdate], 
+    [milkcontrol2].[auditid] AS [auditid], 
+    [milkcontrol2].[cfa] AS [cfa], 
+    [milkcontrol2].[Spillage] AS [Spillage], 
+    [milkcontrol2].[FromStation] AS [FromStation], 
+    [milkcontrol2].[Tostation] AS [Tostation], 
+    [milkcontrol2].[Bf] AS [Bf], 
+    [milkcontrol2].[code] AS [code], 
+    [milkcontrol2].[Branch] AS [Branch]
+    FROM [dbo].[milkcontrol2] AS [milkcontrol2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Milktransfer" EntityType="Self.Milktransfer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Milktransfer].[Id] AS [Id], 
+    [Milktransfer].[Transdate] AS [Transdate], 
+    [Milktransfer].[fromStation] AS [fromStation], 
+    [Milktransfer].[Tostation] AS [Tostation], 
+    [Milktransfer].[FromBranch] AS [FromBranch], 
+    [Milktransfer].[ToBranch] AS [ToBranch], 
+    [Milktransfer].[auditid] AS [auditid], 
+    [Milktransfer].[Intake] AS [Intake], 
+    [Milktransfer].[Code] AS [Code]
+    FROM [dbo].[Milktransfer] AS [Milktransfer]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Mpesab" EntityType="Self.Mpesab" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Mpesab].[id] AS [id], 
@@ -7683,6 +7768,13 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [reportpath].[reportpath] AS [reportpath]
     FROM [dbo].[reportpath] AS [reportpath]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Routes" EntityType="Self.Routes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Routes].[Id] AS [Id], 
+    [Routes].[Name] AS [Name], 
+    [Routes].[scode] AS [scode]
+    FROM [dbo].[Routes] AS [Routes]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="serialno" EntityType="Self.serialno" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [serialno].[serialid] AS [serialid], 
@@ -7756,7 +7848,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [StandingOrder].[Description] AS [Description], 
     [StandingOrder].[AuditId] AS [AuditId], 
     [StandingOrder].[Auditdatetime] AS [Auditdatetime], 
-    [StandingOrder].[SaccoCode] AS [SaccoCode]
+    [StandingOrder].[SaccoCode] AS [SaccoCode], 
+    [StandingOrder].[Zone] AS [Zone]
     FROM [dbo].[StandingOrder] AS [StandingOrder]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="SubCounty" EntityType="Self.SubCounty" store:Type="Tables" store:Schema="dbo">
@@ -7922,7 +8015,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [TransportersBalancings].[Rejects] AS [Rejects], 
     [TransportersBalancings].[Spillage] AS [Spillage], 
     [TransportersBalancings].[Varriance] AS [Varriance], 
-    [TransportersBalancings].[Code] AS [Code]
+    [TransportersBalancings].[Code] AS [Code], 
+    [TransportersBalancings].[Branch] AS [Branch]
     FROM [dbo].[TransportersBalancings] AS [TransportersBalancings]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserAccounts" EntityType="Self.UserAccounts" store:Type="Tables" store:Schema="dbo">
@@ -7943,7 +8037,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [UserAccounts].[Branch] AS [Branch], 
     [UserAccounts].[sign] AS [sign], 
     [UserAccounts].[Phone] AS [Phone], 
-    [UserAccounts].[Reset] AS [Reset]
+    [UserAccounts].[Reset] AS [Reset], 
+    [UserAccounts].[AccessLevel] AS [AccessLevel]
     FROM [dbo].[UserAccounts] AS [UserAccounts]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserAccounts1" EntityType="Self.UserAccounts1" store:Type="Tables" store:Schema="dbo">
@@ -7983,6 +8078,13 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
     [Ward].[CreatedOn] AS [CreatedOn], 
     [Ward].[CreatedBy] AS [CreatedBy]
     FROM [dbo].[Ward] AS [Ward]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Zones" EntityType="Self.Zones" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Zones].[Id] AS [Id], 
+    [Zones].[Name] AS [Name], 
+    [Zones].[Code] AS [Code]
+    FROM [dbo].[Zones] AS [Zones]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_BillDetails_Bills_BillId" Association="Self.FK_BillDetails_Bills_BillId">
             <End Role="Bills" EntitySet="Bills" />
@@ -8090,6 +8192,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="Completed" Type="Int32" />
           <Property Name="salesrep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="saccocode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="assetcode">
           <Key>
@@ -8518,6 +8621,35 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="AuditId" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="DateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="d_MilkQuality">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RejDate" Type="DateTime" Precision="3" />
+          <Property Name="ApproxKgs" Type="Double" />
+          <Property Name="DeKgs" Type="Double" />
+          <Property Name="ContCpcity" Type="Double" />
+          <Property Name="TTransporter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Conttype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Organoleptic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rez" Type="Int32" />
+          <Property Name="Lact" Type="Double" />
+          <Property Name="PlateCount" Type="Double" />
+          <Property Name="Alcohol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeOut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PCheck" Type="Double" />
+          <Property Name="Dramsk" Type="Double" />
+          <Property Name="RejReasons" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="auditid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="auditdatetime" Type="DateTime" Precision="3" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Antibiotic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="d_Payment">
           <Key>
             <PropertyRef Name="RNo" />
@@ -8603,7 +8735,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LOCAL_ID" Type="Int64" />
-          <Property Name="SNo" Type="Int64" Nullable="false" />
+          <Property Name="SNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Regdate" Type="DateTime" Precision="3" />
           <Property Name="IdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Names" Type="String" MaxLength="85" FixedLength="false" Unicode="false" />
@@ -8658,6 +8790,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="mass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="status1" Type="Int64" />
           <Property Name="Run" Type="Int64" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_TransporterIntake">
           <Key>
@@ -8665,7 +8798,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ActualKg" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ActualKg" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="SaccoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -8703,6 +8836,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="BR" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="freezed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PaymenMode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_TransportersPayRoll">
           <Key>
@@ -8896,6 +9030,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="DrAccNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CrAccNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Posted" Type="Boolean" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MornEvening" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Receiptno">
           <Key>
@@ -10705,32 +10841,6 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="auditdatetime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="d_MilkQuality">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Sno" Type="Int64" />
-          <Property Name="RejDate" Type="DateTime" Precision="3" />
-          <Property Name="ApproxKgs" Type="Double" />
-          <Property Name="DeKgs" Type="Double" />
-          <Property Name="ContCpcity" Type="Double" />
-          <Property Name="TTransporter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Conttype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TransMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Organoleptic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rez" Type="Int32" />
-          <Property Name="Lact" Type="Double" />
-          <Property Name="PlateCount" Type="Double" />
-          <Property Name="Alcohol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TimeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TimeOut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PCheck" Type="Double" />
-          <Property Name="Dramsk" Type="Double" />
-          <Property Name="RejReasons" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="auditid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="auditdatetime" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="d_MilkVehicle">
           <Key>
             <PropertyRef Name="id" />
@@ -10888,11 +10998,12 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
         <EntityType Name="d_Payroll">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="SNo" />
             <PropertyRef Name="Tchp" />
             <PropertyRef Name="midmonth" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SNo" Type="Int32" />
+          <Property Name="SNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Transport" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Agrovet" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Bonus" Type="Decimal" Precision="19" Scale="4" />
@@ -11115,6 +11226,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="PREMIUM" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="spu" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SaccoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_smssettings">
           <Key>
@@ -11240,6 +11352,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="DR" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Bal" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="sacco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_trans_frate">
           <Key>
@@ -11288,10 +11401,11 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
         <EntityType Name="d_Transport">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="Sno" />
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Trans_Code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Sno" Type="Int64" />
+          <Property Name="Sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="startdate" Type="DateTime" Precision="3" />
           <Property Name="Active" Type="Boolean" />
@@ -11302,6 +11416,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="saccocode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="producttype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Morning" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_Transport_Deduc">
           <Key>
@@ -11468,6 +11584,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Quantity" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="TransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FLMD">
           <Key>
@@ -11706,6 +11824,38 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="milkcontrol2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Intake" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SQuantity" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Reject" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="transdate" Type="DateTime" Precision="0" />
+          <Property Name="auditid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cfa" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Spillage" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FromStation" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tostation" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Bf" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Milktransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transdate" Type="DateTime" Precision="0" />
+          <Property Name="fromStation" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tostation" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FromBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="auditid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Intake" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Mpesab">
           <Key>
             <PropertyRef Name="id" />
@@ -11900,6 +12050,14 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="reportpath1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="serialno">
           <Key>
             <PropertyRef Name="serialid" />
@@ -11986,7 +12144,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="AuditId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Auditdatetime" Type="DateTime" Precision="3" />
-          <Property Name="SaccoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaccoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SubCounty">
           <Key>
@@ -12203,6 +12362,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="Spillage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Varriance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -12226,6 +12386,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="sign" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="Int32" />
           <Property Name="Reset" Type="Boolean" />
+          <Property Name="AccessLevel" Type="Int32" />
         </EntityType>
         <EntityType Name="UserAccounts1">
           <Key>
@@ -12267,6 +12428,14 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <Property Name="Closed" Type="Boolean" Nullable="false" />
           <Property Name="CreatedOn" Type="DateTime" Precision="0" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_BillDetails_Bills_BillId">
           <End Role="Bills" Type="Self.Bill" Multiplicity="0..1" />
@@ -12392,6 +12561,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="d_LPO" EntityType="Self.d_LPO" />
           <EntitySet Name="d_MainAccount" EntityType="Self.d_MainAccount" />
           <EntitySet Name="d_MaxShares" EntityType="Self.d_MaxShares" />
+          <EntitySet Name="d_MilkQuality" EntityType="Self.d_MilkQuality" />
           <EntitySet Name="d_Payment" EntityType="Self.d_Payment" />
           <EntitySet Name="d_Price" EntityType="Self.d_Price" />
           <EntitySet Name="d_Receipts" EntityType="Self.d_Receipts" />
@@ -12500,7 +12670,6 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="d_Milkintake1" EntityType="Self.d_Milkintake1" />
           <EntitySet Name="d_Milkintake2" EntityType="Self.d_Milkintake2" />
           <EntitySet Name="d_milkintakechange" EntityType="Self.d_milkintakechange" />
-          <EntitySet Name="d_MilkQuality" EntityType="Self.d_MilkQuality" />
           <EntitySet Name="d_MilkVehicle" EntityType="Self.d_MilkVehicle" />
           <EntitySet Name="d_Mpayement" EntityType="Self.d_Mpayement" />
           <EntitySet Name="d_Outlet" EntityType="Self.d_Outlet" />
@@ -12556,6 +12725,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="LOGINS" EntityType="Self.LOGIN" />
           <EntitySet Name="Matchedreports" EntityType="Self.Matchedreport" />
           <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="milkcontrol2" EntityType="Self.milkcontrol2" />
+          <EntitySet Name="Milktransfers" EntityType="Self.Milktransfer" />
           <EntitySet Name="Mpesabs" EntityType="Self.Mpesab" />
           <EntitySet Name="params" EntityType="Self.param" />
           <EntitySet Name="passwordhistories" EntityType="Self.passwordhistory" />
@@ -12567,6 +12738,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="Qsetups" EntityType="Self.Qsetup" />
           <EntitySet Name="ReceiptBookings" EntityType="Self.ReceiptBooking" />
           <EntitySet Name="reportpaths" EntityType="Self.reportpath" />
+          <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="serialnoes" EntityType="Self.serialno" />
           <EntitySet Name="Sessions" EntityType="Self.Session" />
           <EntitySet Name="SharesCategories" EntityType="Self.SharesCategory" />
@@ -12590,6 +12762,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
           <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
           <EntitySet Name="UserAccounts1" EntityType="Self.UserAccounts1" />
           <EntitySet Name="Wards" EntityType="Self.Ward" />
+          <EntitySet Name="Zones" EntityType="Self.Zone" />
           <AssociationSet Name="FK_BillDetails_Bills_BillId" Association="Self.FK_BillDetails_Bills_BillId">
             <End Role="Bills" EntitySet="Bills" />
             <End Role="BillDetails" EntitySet="BillDetails" />
@@ -12698,6 +12871,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="Completed" ColumnName="Completed" />
                 <ScalarProperty Name="salesrep" ColumnName="salesrep" />
                 <ScalarProperty Name="saccocode" ColumnName="saccocode" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13139,6 +13313,36 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="d_MilkQuality">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.d_MilkQuality">
+              <MappingFragment StoreEntitySet="d_MilkQuality">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+                <ScalarProperty Name="RejDate" ColumnName="RejDate" />
+                <ScalarProperty Name="ApproxKgs" ColumnName="ApproxKgs" />
+                <ScalarProperty Name="DeKgs" ColumnName="DeKgs" />
+                <ScalarProperty Name="ContCpcity" ColumnName="ContCpcity" />
+                <ScalarProperty Name="TTransporter" ColumnName="TTransporter" />
+                <ScalarProperty Name="Conttype" ColumnName="Conttype" />
+                <ScalarProperty Name="TransMode" ColumnName="TransMode" />
+                <ScalarProperty Name="Organoleptic" ColumnName="Organoleptic" />
+                <ScalarProperty Name="Rez" ColumnName="Rez" />
+                <ScalarProperty Name="Lact" ColumnName="Lact" />
+                <ScalarProperty Name="PlateCount" ColumnName="PlateCount" />
+                <ScalarProperty Name="Alcohol" ColumnName="Alcohol" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="PCheck" ColumnName="PCheck" />
+                <ScalarProperty Name="Dramsk" ColumnName="Dramsk" />
+                <ScalarProperty Name="RejReasons" ColumnName="RejReasons" />
+                <ScalarProperty Name="auditid" ColumnName="auditid" />
+                <ScalarProperty Name="auditdatetime" ColumnName="auditdatetime" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Antibiotic" ColumnName="Antibiotic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="d_Payment">
             <EntityTypeMapping TypeName="MobileBanking_API.Models.d_Payment">
               <MappingFragment StoreEntitySet="d_Payment">
@@ -13282,6 +13486,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="mass" ColumnName="mass" />
                 <ScalarProperty Name="status1" ColumnName="status1" />
                 <ScalarProperty Name="Run" ColumnName="Run" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13329,6 +13534,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="BR" ColumnName="BR" />
                 <ScalarProperty Name="freezed" ColumnName="freezed" />
                 <ScalarProperty Name="PaymenMode" ColumnName="PaymenMode" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13529,6 +13735,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="DrAccNo" ColumnName="DrAccNo" />
                 <ScalarProperty Name="CrAccNo" ColumnName="CrAccNo" />
                 <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="MornEvening" ColumnName="MornEvening" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15278,33 +15486,6 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="d_MilkQuality">
-            <EntityTypeMapping TypeName="MobileBanking_API.Models.d_MilkQuality">
-              <MappingFragment StoreEntitySet="d_MilkQuality">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Sno" ColumnName="Sno" />
-                <ScalarProperty Name="RejDate" ColumnName="RejDate" />
-                <ScalarProperty Name="ApproxKgs" ColumnName="ApproxKgs" />
-                <ScalarProperty Name="DeKgs" ColumnName="DeKgs" />
-                <ScalarProperty Name="ContCpcity" ColumnName="ContCpcity" />
-                <ScalarProperty Name="TTransporter" ColumnName="TTransporter" />
-                <ScalarProperty Name="Conttype" ColumnName="Conttype" />
-                <ScalarProperty Name="TransMode" ColumnName="TransMode" />
-                <ScalarProperty Name="Organoleptic" ColumnName="Organoleptic" />
-                <ScalarProperty Name="Rez" ColumnName="Rez" />
-                <ScalarProperty Name="Lact" ColumnName="Lact" />
-                <ScalarProperty Name="PlateCount" ColumnName="PlateCount" />
-                <ScalarProperty Name="Alcohol" ColumnName="Alcohol" />
-                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
-                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
-                <ScalarProperty Name="PCheck" ColumnName="PCheck" />
-                <ScalarProperty Name="Dramsk" ColumnName="Dramsk" />
-                <ScalarProperty Name="RejReasons" ColumnName="RejReasons" />
-                <ScalarProperty Name="auditid" ColumnName="auditid" />
-                <ScalarProperty Name="auditdatetime" ColumnName="auditdatetime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="d_MilkVehicle">
             <EntityTypeMapping TypeName="MobileBanking_API.Models.d_MilkVehicle">
               <MappingFragment StoreEntitySet="d_MilkVehicle">
@@ -15689,6 +15870,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="PREMIUM" ColumnName="PREMIUM" />
                 <ScalarProperty Name="spu" ColumnName="spu" />
                 <ScalarProperty Name="SaccoCode" ColumnName="SaccoCode" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15813,6 +15995,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="DR" ColumnName="DR" />
                 <ScalarProperty Name="Bal" ColumnName="Bal" />
                 <ScalarProperty Name="sacco" ColumnName="sacco" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15877,6 +16060,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="saccocode" ColumnName="saccocode" />
                 <ScalarProperty Name="producttype" ColumnName="producttype" />
                 <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Morning" ColumnName="Morning" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16045,6 +16230,8 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="ProductType" ColumnName="ProductType" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16268,6 +16455,40 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="milkcontrol2">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.milkcontrol2">
+              <MappingFragment StoreEntitySet="milkcontrol2">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Intake" ColumnName="Intake" />
+                <ScalarProperty Name="SQuantity" ColumnName="SQuantity" />
+                <ScalarProperty Name="Reject" ColumnName="Reject" />
+                <ScalarProperty Name="transdate" ColumnName="transdate" />
+                <ScalarProperty Name="auditid" ColumnName="auditid" />
+                <ScalarProperty Name="cfa" ColumnName="cfa" />
+                <ScalarProperty Name="Spillage" ColumnName="Spillage" />
+                <ScalarProperty Name="FromStation" ColumnName="FromStation" />
+                <ScalarProperty Name="Tostation" ColumnName="Tostation" />
+                <ScalarProperty Name="Bf" ColumnName="Bf" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Milktransfers">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.Milktransfer">
+              <MappingFragment StoreEntitySet="Milktransfer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Transdate" ColumnName="Transdate" />
+                <ScalarProperty Name="fromStation" ColumnName="fromStation" />
+                <ScalarProperty Name="Tostation" ColumnName="Tostation" />
+                <ScalarProperty Name="FromBranch" ColumnName="FromBranch" />
+                <ScalarProperty Name="ToBranch" ColumnName="ToBranch" />
+                <ScalarProperty Name="auditid" ColumnName="auditid" />
+                <ScalarProperty Name="Intake" ColumnName="Intake" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Mpesabs">
             <EntityTypeMapping TypeName="MobileBanking_API.Models.Mpesab">
               <MappingFragment StoreEntitySet="Mpesab">
@@ -16445,6 +16666,15 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.Route">
+              <MappingFragment StoreEntitySet="Routes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="scode" ColumnName="scode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="serialnoes">
             <EntityTypeMapping TypeName="MobileBanking_API.Models.serialno">
               <MappingFragment StoreEntitySet="serialno">
@@ -16532,6 +16762,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="AuditId" ColumnName="AuditId" />
                 <ScalarProperty Name="Auditdatetime" ColumnName="Auditdatetime" />
                 <ScalarProperty Name="SaccoCode" ColumnName="SaccoCode" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16724,6 +16955,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="Spillage" ColumnName="Spillage" />
                 <ScalarProperty Name="Varriance" ColumnName="Varriance" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16747,6 +16979,7 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="sign" ColumnName="sign" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Reset" ColumnName="Reset" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16789,6 +17022,15 @@ warning 6002: The table/view 'MORINGA.dbo.Ward' does not have a primary key defi
                 <ScalarProperty Name="Closed" ColumnName="Closed" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zones">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.Zone">
+              <MappingFragment StoreEntitySet="Zones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

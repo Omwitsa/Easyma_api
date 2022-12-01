@@ -679,6 +679,12 @@
     <Compile Include="Models\Message.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\milkcontrol2.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Milktransfer.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Mpesab.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -725,6 +731,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\reportpath.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Route.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\serialno.cs">
@@ -821,6 +830,9 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ward.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Zone.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

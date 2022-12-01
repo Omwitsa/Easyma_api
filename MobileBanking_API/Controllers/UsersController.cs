@@ -104,7 +104,8 @@ namespace MobileBanking_API.Controllers
         {
             try
             {
-				if (supplier == null)
+				string sno = supplier.SNo + "";
+                if (supplier == null)
 					return new ReturnData
 					{
 						Success = false,
@@ -132,7 +133,7 @@ namespace MobileBanking_API.Controllers
 						Message = "Sorry, Kindly provide supplier Id No."
 					};
 
-				if (db.d_Suppliers.Any(s => s.SNo == supplier.SNo))
+				if (db.d_Suppliers.Any(s => s.SNo == sno))
 					return new ReturnData
 					{
 						Success = false,
@@ -140,7 +141,7 @@ namespace MobileBanking_API.Controllers
 					};
 
 				db.d_Suppliers.Add(new d_Suppliers { 
-					SNo = supplier.SNo,
+					SNo = sno,
 					Names = supplier.Names,
 					IdNo = supplier.IdNo,
 					PhoneNo = supplier.PhoneNo,

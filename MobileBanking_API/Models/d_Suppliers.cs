@@ -16,7 +16,7 @@ namespace MobileBanking_API.Models
     {
         public long Id { get; set; }
         public Nullable<long> LOCAL_ID { get; set; }
-        public long SNo { get; set; }
+        public string SNo { get; set; }
         public Nullable<System.DateTime> Regdate { get; set; }
         public string IdNo { get; set; }
         public string Names { get; set; }
@@ -71,5 +71,6 @@ namespace MobileBanking_API.Models
         public string mass { get; set; }
         public Nullable<long> status1 { get; set; }
         public Nullable<long> Run { get; set; }
+        public string Zone { get; set; }
     }
 }

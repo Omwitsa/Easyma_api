@@ -41,5 +41,6 @@ namespace MobileBanking_API.Models
         public string BR { get; set; }
         public string freezed { get; set; }
         public string PaymenMode { get; set; }
+        public string Route { get; set; }
     }
 }

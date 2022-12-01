@@ -16,7 +16,7 @@ namespace MobileBanking_API.Models
     {
         public long ID { get; set; }
         public string Trans_Code { get; set; }
-        public Nullable<long> Sno { get; set; }
+        public string Sno { get; set; }
         public Nullable<decimal> Rate { get; set; }
         public Nullable<System.DateTime> startdate { get; set; }
         public Nullable<bool> Active { get; set; }
@@ -27,5 +27,7 @@ namespace MobileBanking_API.Models
         public string saccocode { get; set; }
         public string producttype { get; set; }
         public string Branch { get; set; }
+        public string Zone { get; set; }
+        public string Morning { get; set; }
     }
 }

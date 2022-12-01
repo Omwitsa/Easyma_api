@@ -15,7 +15,7 @@ namespace MobileBanking_API.Models
     public partial class d_Payroll
     {
         public long Id { get; set; }
-        public Nullable<int> SNo { get; set; }
+        public string SNo { get; set; }
         public Nullable<decimal> Transport { get; set; }
         public Nullable<decimal> Agrovet { get; set; }
         public Nullable<decimal> Bonus { get; set; }

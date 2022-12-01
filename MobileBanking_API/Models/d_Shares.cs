@@ -37,5 +37,6 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> PREMIUM { get; set; }
         public Nullable<decimal> spu { get; set; }
         public string SaccoCode { get; set; }
+        public string zone { get; set; }
     }
 }

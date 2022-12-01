@@ -15,7 +15,7 @@ namespace MobileBanking_API.Models
     public partial class d_MilkQuality
     {
         public long id { get; set; }
-        public Nullable<long> Sno { get; set; }
+        public string Sno { get; set; }
         public Nullable<System.DateTime> RejDate { get; set; }
         public Nullable<double> ApproxKgs { get; set; }
         public Nullable<double> DeKgs { get; set; }
@@ -35,5 +35,8 @@ namespace MobileBanking_API.Models
         public string RejReasons { get; set; }
         public string auditid { get; set; }
         public Nullable<System.DateTime> auditdatetime { get; set; }
+        public string code { get; set; }
+        public string Branch { get; set; }
+        public string Antibiotic { get; set; }
     }
 }

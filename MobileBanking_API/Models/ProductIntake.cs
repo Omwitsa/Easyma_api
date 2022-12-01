@@ -35,5 +35,7 @@ namespace MobileBanking_API.Models
         public string DrAccNo { get; set; }
         public string CrAccNo { get; set; }
         public Nullable<bool> Posted { get; set; }
+        public string Zone { get; set; }
+        public string MornEvening { get; set; }
     }
 }

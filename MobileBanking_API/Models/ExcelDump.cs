@@ -21,5 +21,7 @@ namespace MobileBanking_API.Models
         public string ProductType { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<System.DateTime> TransDate { get; set; }
+        public string TransCode { get; set; }
+        public string Branch { get; set; }
     }
 }
