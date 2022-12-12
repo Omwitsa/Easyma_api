@@ -4,6 +4,7 @@ using MobileBanking_API.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace MobileBanking_API.Controllers
@@ -18,35 +19,54 @@ namespace MobileBanking_API.Controllers
 		}
 
 		[Route("productIntake")]
-		public ReturnData ProductIntake([FromBody] List<ProductIntake> intakes)
+		public async Task<ReturnData> ProductIntake([FromBody] List<ProductIntakeVm> intakes)
 		{
 			try
 			{
 				var intake = intakes.FirstOrDefault();
                 var products = $"SELECT * FROM d_Price WHERE Products = '{intake.Product}' AND SaccoCode = '{intake.SaccoCode}'";
-                var product = db.Database.SqlQuery<d_Price>(products).FirstOrDefault();
-                intakes.ForEach(i =>
-				{
-                    i.Auditid = i.Auditid ?? "";
-                    i.Auditid = i.Auditid.ToUpper();
-                    i.Product = i?.Product ?? "";
+                var product = await db.Database.SqlQuery<d_Price>(products).FirstOrDefaultAsync();
+                var productIntakes = new List<ProductIntake>();
+                foreach(var productIntake in intakes)
+                {
+                    productIntake.Auditid = productIntake.Auditid ?? "";
+                    productIntake.Auditid = productIntake.Auditid.ToUpper();
+                    productIntake.Product = productIntake?.Product ?? "";
 
-                    decimal.TryParse(i.Qty, out decimal qty);
+                    decimal.TryParse(productIntake.Qty, out decimal qty);
                     var balance = 0;
                     decimal? dr = 0;
                     decimal? cr = qty * product.Price;
+                    var transDate = Convert.ToDateTime(productIntake.Dates);
+                    productIntakes.Add(new ProductIntake
+                    {
+                        Sno = productIntake.Sup,
+                        TransDate = transDate.Date,
+                        TransTime = transDate.TimeOfDay,
+                        ProductType = productIntake.Product,
+                        QSupplied = qty,
+                        PPU = product.Price,
+                        CR = cr,
+                        DR = dr,
+                        Balance = balance,
+                        Description = "Intake",
+                        Paid = false,
+                        Remarks = "Synch",
+                        TransactionType = 1,
+                        AuditId = productIntake.Auditid,
+                        auditdatetime = DateTime.UtcNow.AddHours(3),
+                        Branch = productIntake.Branchhh,
+                        SaccoCode = productIntake.SaccoCode,
+                        DrAccNo = product.DrAccNo,
+                        CrAccNo = product.CrAccNo,
+                    });
 
-                    var transDate = Convert.ToDateTime(i.Dates);
-                    var inserttransactions = $"SET DATEFORMAT YMD INSERT INTO ProductIntake([Sno],[TransDate],[TransTime],[ProductType],[QSupplied],[PPU],[CR],[DR],[Balance],[Description],[Paid],[Remarks],[TransactionType],[AuditId],[auditdatetime],[Branch],[SaccoCode],[DrAccNo],[CrAccNo]) " +
-                        $"VALUES('{i.Sup}','{transDate.Date}','{transDate.TimeOfDay}','{i.Product}','{qty}','{product.Price}','{cr}','{dr}','{balance}','Intake',0,'Sych','1','{i.Auditid}',GETDATE(),'{i.Branchhh}','{i.SaccoCode}','{product.DrAccNo}','{product.CrAccNo}')";
-                    db.Database.ExecuteSqlCommand(inserttransactions);
-
-                    var query = $"SET DATEFORMAT YMD SELECT * FROM d_Transport WHERE Trans_Code = '{i.Auditid}' AND sno = '{i.Sup}' AND Active = 1 AND producttype = '{i.Product}'";
-                    var transport = db.Database.SqlQuery<d_Transport>(query).FirstOrDefault();
+                    var query = $"SET DATEFORMAT YMD SELECT * FROM d_Transport WHERE Trans_Code = '{productIntake.Auditid}' AND sno = '{productIntake.Sup}' AND Active = 1 AND producttype = '{productIntake.Product}'";
+                    var transport = await db.Database.SqlQuery<d_Transport>(query).FirstOrDefaultAsync();
                     if (transport == null)
                     {
-                        query = $"SET DATEFORMAT YMD SELECT * FROM d_Transport WHERE Trans_Code = '{i.Auditid}' AND Active = 1 AND producttype = '{i.Product}'";
-                        transport = db.Database.SqlQuery<d_Transport>(query).FirstOrDefault();
+                        query = $"SET DATEFORMAT YMD SELECT * FROM d_Transport WHERE Trans_Code = '{productIntake.Auditid}' AND Active = 1 AND producttype = '{productIntake.Product}'";
+                        transport = await db.Database.SqlQuery<d_Transport>(query).FirstOrDefaultAsync();
                     }
 
                     decimal? rate = 0;
@@ -56,36 +76,92 @@ namespace MobileBanking_API.Controllers
                     // Debit supplier transport amount
                     dr = qty * rate;
                     cr = 0;
-                    inserttransactions = $"SET DATEFORMAT YMD INSERT INTO ProductIntake([Sno],[TransDate],[TransTime],[ProductType],[QSupplied],[PPU],[CR],[DR],[Balance],[Description],[Paid],[Remarks],[TransactionType],[AuditId],[auditdatetime],[Branch],[SaccoCode],[DrAccNo],[CrAccNo]) " +
-                        $"VALUES('{i.Sup}','{transDate.Date}','{transDate.TimeOfDay}','{i.Product}','{qty}','{rate}','{cr}','{dr}','{balance}','Transport',0,'Sych','2','{i.Auditid}',GETDATE(),'{i.Branchhh}','{i.SaccoCode}','{product.TransportCrAccNo}','{product.TransportDrAccNo}')";
-                    db.Database.ExecuteSqlCommand(inserttransactions);
+                    productIntakes.Add(new ProductIntake
+                    {
+                        Sno = productIntake.Sup,
+                        TransDate = transDate.Date,
+                        TransTime = transDate.TimeOfDay,
+                        ProductType = productIntake.Product,
+                        QSupplied = qty,
+                        PPU = rate,
+                        CR = cr,
+                        DR = dr,
+                        Balance = balance,
+                        Description = "Transport",
+                        Paid = false,
+                        Remarks = "Synch",
+                        TransactionType = 2,
+                        AuditId = productIntake.Auditid,
+                        auditdatetime = DateTime.UtcNow.AddHours(3),
+                        Branch = productIntake.Branchhh,
+                        SaccoCode = productIntake.SaccoCode,
+                        DrAccNo = product.TransportCrAccNo,
+                        CrAccNo = product.TransportDrAccNo,
+                    });
 
                     // Credit transpoter transport amount
                     dr = 0;
                     cr = qty * rate;
-                    inserttransactions = $"SET DATEFORMAT YMD INSERT INTO ProductIntake([Sno],[TransDate],[TransTime],[ProductType],[QSupplied],[PPU],[CR],[DR],[Balance],[Description],[Paid],[Remarks],[TransactionType],[AuditId],[auditdatetime],[Branch],[SaccoCode],[DrAccNo],[CrAccNo]) " +
-                        $"VALUES('{i.Auditid}','{transDate.Date}','{transDate.TimeOfDay}','{i.Product}','{qty}','{rate}','{cr}','{dr}','{balance}','Transport',0,'Sych','2','{i.Auditid}',GETDATE(),'{i.Branchhh}','{i.SaccoCode}','{product.TransportDrAccNo}','{product.TransportCrAccNo}')";
-                    db.Database.ExecuteSqlCommand(inserttransactions);
 
-                    var startDate = new DateTime(transDate.Year, transDate.Month, 1);
+                    productIntakes.Add(new ProductIntake
+                    {
+                        Sno = productIntake.Auditid,
+                        TransDate = transDate.Date,
+                        TransTime = transDate.TimeOfDay,
+                        ProductType = productIntake.Product,
+                        QSupplied = qty,
+                        PPU = rate,
+                        CR = cr,
+                        DR = dr,
+                        Balance = balance,
+                        Description = "Transport",
+                        Paid = false,
+                        Remarks = "Synch",
+                        TransactionType = 2,
+                        AuditId = productIntake.Auditid,
+                        auditdatetime = DateTime.UtcNow.AddHours(3),
+                        Branch = productIntake.Branchhh,
+                        SaccoCode = productIntake.SaccoCode,
+                        DrAccNo = product.TransportDrAccNo,
+                        CrAccNo = product.TransportCrAccNo,
+                    });
+                }
+
+                var supIntakes = productIntakes.GroupBy(i => i.Sno).ToList();
+                supIntakes.ForEach(i =>
+                {
+                    var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
                     var endDate = startDate.AddMonths(1).AddDays(-1);
-                    var commulated = db.ProductIntakes.Where(s => s.Sno == i.Sup && s.SaccoCode == i.SaccoCode
+                    var qty = i.Sum(p => p.QSupplied);
+                    var commulated = db.ProductIntakes.Where(s => s.Sno == i.Key && s.SaccoCode == intake.SaccoCode
                     && s.TransDate >= startDate && s.TransDate <= endDate).Sum(s => s.QSupplied);
-                    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Sup && s.scode == i.SaccoCode);
-                    var content = $"You have supplied {qty} kgs to {i.SaccoCode}. Your commulated {commulated + qty}";
+
+                    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Key && s.scode == intake.SaccoCode);
+                    var content = $"You have supplied {qty} kgs to {intake.SaccoCode}. Your commulated {commulated + qty}";
 
                     if (suppliers != null)
                     {
-                        var insertMessageQuery = $"INSERT INTO Messages(Telephone, [Content], ProcessTime, MsgType, Replied, DateReceived, Source, Code) " +
-                        $"VALUES('{suppliers.PhoneNo}', '{content}', GETDATE(), 'Outbox', 0, GETDATE(), '{i.Auditid}', '{i.SaccoCode}')";
-                        db.Database.ExecuteSqlCommand(insertMessageQuery);
+                        db.Messages.Add(new Message
+                        {
+                            Telephone = suppliers.PhoneNo,
+                            Content = content,
+                            ProcessTime = DateTime.UtcNow.AddHours(3).ToString(),
+                            MsgType = "Outbox",
+                            Replied = false,
+                            DateReceived = DateTime.UtcNow.AddHours(3),
+                            Source = intake.Auditid,
+                            Code = intake.SaccoCode
+                        });
                     }
                 });
+                db.ProductIntakes.AddRange(productIntakes);
+                var result = await db.SaveChangesAsync();
 
                 return new ReturnData
 				{
 					Success = true,
-					Message = "Submitted Sucessfully"
+					Message = "Submitted Sucessfully",
+                    Data = result
 				};
 			}
 

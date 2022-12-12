@@ -3884,13 +3884,9 @@ warning 6013: The table/view 'MORINGA.dbo.MaxShares' does not have a primary key
           <Property Name="ID" Type="nvarchar" MaxLength="255" />
           <Property Name="MaxAmount" Type="money" />
         </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MORINGA.dbo.Messages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Messages">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Source" />
-            <PropertyRef Name="Code" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Telephone" Type="varchar" MaxLength="15" />
@@ -5347,6 +5343,7 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GLSETUP" EntityType="Self.GLSETUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductIntake" EntityType="Self.ProductIntake" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Receiptno" EntityType="Self.Receiptno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefundDetails" EntityType="Self.RefundDetails" Schema="dbo" store:Type="Tables" />
@@ -7570,19 +7567,6 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
     [Matchedreport].[AuditDate] AS [AuditDate]
     FROM [dbo].[Matchedreport] AS [Matchedreport]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Messages" EntityType="Self.Messages" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Messages].[Id] AS [Id], 
-    [Messages].[Telephone] AS [Telephone], 
-    [Messages].[Content] AS [Content], 
-    [Messages].[ProcessTime] AS [ProcessTime], 
-    [Messages].[MsgType] AS [MsgType], 
-    [Messages].[Replied] AS [Replied], 
-    [Messages].[DateReceived] AS [DateReceived], 
-    [Messages].[Source] AS [Source], 
-    [Messages].[Code] AS [Code]
-    FROM [dbo].[Messages] AS [Messages]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="milkcontrol2" EntityType="Self.milkcontrol2" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [milkcontrol2].[Id] AS [Id], 
@@ -9004,6 +8988,20 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <Property Name="Issuspense" Type="Boolean" Nullable="false" />
           <Property Name="Run" Type="Int64" />
           <Property Name="saccocode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Replied" Type="Boolean" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductIntake">
           <Key>
@@ -11808,22 +11806,6 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <Property Name="valuedate" Type="DateTime" Precision="3" />
           <Property Name="AuditDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Source" />
-            <PropertyRef Name="Code" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Name="ProcessTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Replied" Type="Boolean" />
-          <Property Name="DateReceived" Type="DateTime" Precision="3" />
-          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
         <EntityType Name="milkcontrol2">
           <Key>
             <PropertyRef Name="Id" />
@@ -12578,6 +12560,7 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <EntitySet Name="dtproperties" EntityType="Self.dtproperty" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="GLSETUPs" EntityType="Self.GLSETUP" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
           <EntitySet Name="ProductIntakes" EntityType="Self.ProductIntake" />
           <EntitySet Name="Receiptnoes" EntityType="Self.Receiptno" />
           <EntitySet Name="RefundDetails" EntityType="Self.RefundDetail" />
@@ -12724,7 +12707,6 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <EntitySet Name="JournalTypes" EntityType="Self.JournalType" />
           <EntitySet Name="LOGINS" EntityType="Self.LOGIN" />
           <EntitySet Name="Matchedreports" EntityType="Self.Matchedreport" />
-          <EntitySet Name="Messages" EntityType="Self.Message" />
           <EntitySet Name="milkcontrol2" EntityType="Self.milkcontrol2" />
           <EntitySet Name="Milktransfers" EntityType="Self.Milktransfer" />
           <EntitySet Name="Mpesabs" EntityType="Self.Mpesab" />
@@ -13708,6 +13690,21 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
                 <ScalarProperty Name="Issuspense" ColumnName="Issuspense" />
                 <ScalarProperty Name="Run" ColumnName="Run" />
                 <ScalarProperty Name="saccocode" ColumnName="saccocode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ProcessTime" ColumnName="ProcessTime" />
+                <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+                <ScalarProperty Name="Replied" ColumnName="Replied" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16437,21 +16434,6 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="valuedate" ColumnName="valuedate" />
                 <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Messages">
-            <EntityTypeMapping TypeName="MobileBanking_API.Models.Message">
-              <MappingFragment StoreEntitySet="Messages">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="ProcessTime" ColumnName="ProcessTime" />
-                <ScalarProperty Name="MsgType" ColumnName="MsgType" />
-                <ScalarProperty Name="Replied" ColumnName="Replied" />
-                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

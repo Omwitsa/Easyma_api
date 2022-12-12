@@ -69,6 +69,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<dtproperty> dtproperties { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<GLSETUP> GLSETUPs { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<ProductIntake> ProductIntakes { get; set; }
         public virtual DbSet<Receiptno> Receiptnoes { get; set; }
         public virtual DbSet<RefundDetail> RefundDetails { get; set; }
@@ -215,7 +216,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<JournalType> JournalTypes { get; set; }
         public virtual DbSet<LOGIN> LOGINS { get; set; }
         public virtual DbSet<Matchedreport> Matchedreports { get; set; }
-        public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<milkcontrol2> milkcontrol2 { get; set; }
         public virtual DbSet<Milktransfer> Milktransfers { get; set; }
         public virtual DbSet<Mpesab> Mpesabs { get; set; }

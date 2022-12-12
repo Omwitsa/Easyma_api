@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MobileBanking_API.Controllers
 {
-    public class ProductIntake
+    public class ProductIntakeVm
     {
         public string Sup { get; set; }
         public string Qty { get; set; }
