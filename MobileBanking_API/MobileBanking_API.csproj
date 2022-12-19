@@ -839,6 +839,7 @@
     <Compile Include="Utilities\SecurePasswordHasher.cs" />
     <Compile Include="ViewModel\PriceVm.cs" />
     <Compile Include="ViewModel\ReturnData.cs" />
+    <Compile Include="ViewModel\SupplierVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\MaziwaModel.edmx">

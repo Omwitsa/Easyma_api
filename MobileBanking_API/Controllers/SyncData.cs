@@ -14,5 +14,6 @@ namespace MobileBanking_API.Controllers
         public string Auditid { get; set; }
         public string Product { get; set; }
         public string SaccoCode { get; set; }
+        public string Shift { get; set; }
     }
 }

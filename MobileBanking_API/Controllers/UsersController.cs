@@ -3,6 +3,7 @@ using MobileBanking_API.Utilities;
 using MobileBanking_API.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -51,7 +52,7 @@ namespace MobileBanking_API.Controllers
                         Balance = balance,
                         Description = "Intake",
                         Paid = false,
-                        Remarks = "Synch",
+                        Remarks = productIntake.Shift + "; Synch",
                         TransactionType = 1,
                         AuditId = productIntake.Auditid,
                         auditdatetime = DateTime.UtcNow.AddHours(3),
@@ -89,7 +90,7 @@ namespace MobileBanking_API.Controllers
                         Balance = balance,
                         Description = "Transport",
                         Paid = false,
-                        Remarks = "Synch",
+                        Remarks = productIntake.Shift + "; Synch",
                         TransactionType = 2,
                         AuditId = productIntake.Auditid,
                         auditdatetime = DateTime.UtcNow.AddHours(3),
@@ -116,7 +117,7 @@ namespace MobileBanking_API.Controllers
                         Balance = balance,
                         Description = "Transport",
                         Paid = false,
-                        Remarks = "Synch",
+                        Remarks = productIntake.Shift + "; Synch",
                         TransactionType = 2,
                         AuditId = productIntake.Auditid,
                         auditdatetime = DateTime.UtcNow.AddHours(3),
@@ -127,33 +128,34 @@ namespace MobileBanking_API.Controllers
                     });
                 }
 
-                var supIntakes = productIntakes.GroupBy(i => i.Sno).ToList();
-                supIntakes.ForEach(i =>
-                {
-                    var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-                    var endDate = startDate.AddMonths(1).AddDays(-1);
-                    var qty = i.Sum(p => p.QSupplied);
-                    var commulated = db.ProductIntakes.Where(s => s.Sno == i.Key && s.SaccoCode == intake.SaccoCode
-                    && s.TransDate >= startDate && s.TransDate <= endDate).Sum(s => s.QSupplied);
+                //var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                //var endDate = startDate.AddMonths(1).AddDays(-1);
+                //var monthlyIntakes = await db.ProductIntakes.Where(s => s.SaccoCode == intake.SaccoCode
+                //&& s.TransDate >= startDate && s.TransDate <= endDate).ToListAsync();
 
-                    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Key && s.scode == intake.SaccoCode);
-                    var content = $"You have supplied {qty} kgs to {intake.SaccoCode}. Your commulated {commulated + qty}";
+                //var supIntakes = productIntakes.GroupBy(i => i.Sno).ToList();
+                //supIntakes.ForEach(i =>
+                //{
+                //    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Key && s.scode == intake.SaccoCode);
+                //    if (suppliers != null)
+                //    {
+                //        var qty = i.Sum(p => p.QSupplied);
+                //        var commulated = monthlyIntakes.Where(m => m.Sno == i.Key).Sum(m => m.QSupplied);
+                //        var content = $"You have supplied {qty} kgs to {intake.SaccoCode}. Your commulated {commulated + qty}";
 
-                    if (suppliers != null)
-                    {
-                        db.Messages.Add(new Message
-                        {
-                            Telephone = suppliers.PhoneNo,
-                            Content = content,
-                            ProcessTime = DateTime.UtcNow.AddHours(3).ToString(),
-                            MsgType = "Outbox",
-                            Replied = false,
-                            DateReceived = DateTime.UtcNow.AddHours(3),
-                            Source = intake.Auditid,
-                            Code = intake.SaccoCode
-                        });
-                    }
-                });
+                //        db.Messages.Add(new Message
+                //        {
+                //            Telephone = suppliers.PhoneNo,
+                //            Content = content,
+                //            ProcessTime = DateTime.UtcNow.AddHours(3).ToString(),
+                //            MsgType = "Outbox",
+                //            Replied = false,
+                //            DateReceived = DateTime.UtcNow.AddHours(3),
+                //            Source = intake.Auditid,
+                //            Code = intake.SaccoCode
+                //        });
+                //    }
+                //});
                 db.ProductIntakes.AddRange(productIntakes);
                 var result = await db.SaveChangesAsync();
 
@@ -332,10 +334,49 @@ namespace MobileBanking_API.Controllers
             }
         }
 
+        [Route("getSuppliers")]
+        public async Task<ReturnData> GetSuppliers(string transCode, string saccoCode)
+        {
+            try
+            {
+                saccoCode = saccoCode ?? "";
+                transCode = transCode ?? "";
+                var transporterSuppliers = await db.d_Transport.Where(t => t.Trans_Code.ToUpper().Equals(transCode.ToUpper())
+                && t.saccocode.ToUpper().Equals(saccoCode.ToUpper()))
+                    .Select(t => t.Sno.ToUpper()).ToListAsync();
+                var suppliers = await db.d_Suppliers.Where(d => transporterSuppliers.Contains(d.SNo.ToUpper()))
+                    .Select(s => new SupplierVm
+                    {
+                        SNo = s.SNo,
+                        Names = s.Names
+                    }).ToListAsync();
+
+                var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
+                var intakes = await db.ProductIntakes.Where(s => s.SaccoCode == saccoCode
+                && s.TransDate >= startDate && s.TransDate <= endDate).ToListAsync();
+
+                suppliers.ForEach(s =>
+                {
+                    s.Cummulative = intakes.Where(i => i.Sno == s.SNo).Sum(i => i.QSupplied);
+                });
+
+                return new ReturnData
+                {
+                    Success = true,
+                    Data = suppliers
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReturnData
+                {
+                    Success = false,
+                    Message = "Sorry, An error occurred,Contact Administrator"
+                };
+            }
+        }
     }
-
-
-
 }
 
 
