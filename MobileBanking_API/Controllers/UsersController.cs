@@ -341,16 +341,6 @@ namespace MobileBanking_API.Controllers
             {
                 saccoCode = saccoCode ?? "";
                 transCode = transCode ?? "";
-                //var transporterSuppliers = await db.d_Transport.Where(t => t.Trans_Code.ToUpper().Equals(transCode.ToUpper())
-                //&& t.saccocode.ToUpper().Equals(saccoCode.ToUpper()))
-                //    .Select(t => t.Sno.ToUpper()).ToListAsync();
-                //var suppliers = await db.d_Suppliers.Where(d => transporterSuppliers.Contains(d.SNo.ToUpper()))
-                //    .Select(s => new SupplierVm
-                //    {
-                //        SNo = s.SNo,
-                //        Names = s.Names
-                //    }).ToListAsync();
-
                 var suppliers = await db.d_Suppliers
                     .Select(s => new SupplierVm
                     {
@@ -361,7 +351,7 @@ namespace MobileBanking_API.Controllers
                 var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
                 var endDate = startDate.AddMonths(1).AddDays(-1);
                 var intakes = await db.ProductIntakes.Where(s => s.SaccoCode == saccoCode
-                && s.TransDate >= startDate && s.TransDate <= endDate).ToListAsync();
+                && s.TransDate >= startDate && s.TransDate <= endDate && s.Description == "Intake").ToListAsync();
 
                 suppliers.ForEach(s =>
                 {
