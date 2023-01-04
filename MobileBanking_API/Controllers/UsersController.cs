@@ -341,10 +341,17 @@ namespace MobileBanking_API.Controllers
             {
                 saccoCode = saccoCode ?? "";
                 transCode = transCode ?? "";
-                var transporterSuppliers = await db.d_Transport.Where(t => t.Trans_Code.ToUpper().Equals(transCode.ToUpper())
-                && t.saccocode.ToUpper().Equals(saccoCode.ToUpper()))
-                    .Select(t => t.Sno.ToUpper()).ToListAsync();
-                var suppliers = await db.d_Suppliers.Where(d => transporterSuppliers.Contains(d.SNo.ToUpper()))
+                //var transporterSuppliers = await db.d_Transport.Where(t => t.Trans_Code.ToUpper().Equals(transCode.ToUpper())
+                //&& t.saccocode.ToUpper().Equals(saccoCode.ToUpper()))
+                //    .Select(t => t.Sno.ToUpper()).ToListAsync();
+                //var suppliers = await db.d_Suppliers.Where(d => transporterSuppliers.Contains(d.SNo.ToUpper()))
+                //    .Select(s => new SupplierVm
+                //    {
+                //        SNo = s.SNo,
+                //        Names = s.Names
+                //    }).ToListAsync();
+
+                var suppliers = await db.d_Suppliers
                     .Select(s => new SupplierVm
                     {
                         SNo = s.SNo,
