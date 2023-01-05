@@ -186,6 +186,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_smssettings> d_smssettings { get; set; }
         public virtual DbSet<d_supplier_deduc> d_supplier_deduc { get; set; }
         public virtual DbSet<d_supplier_standingorder> d_supplier_standingorder { get; set; }
+        public virtual DbSet<d_SupplierCumlative> d_SupplierCumlative { get; set; }
         public virtual DbSet<d_SupplyDeducTrans> d_SupplyDeducTrans { get; set; }
         public virtual DbSet<d_tbl_trends> d_tbl_trends { get; set; }
         public virtual DbSet<d_tmpEnquery> d_tmpEnquery { get; set; }

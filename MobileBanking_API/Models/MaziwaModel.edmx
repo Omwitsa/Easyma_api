@@ -2632,6 +2632,7 @@ warning 6002: The table/view 'MORINGA.dbo.d_PreSets' does not have a primary key
           <Property Name="status5" Type="bigint" />
           <Property Name="status6" Type="bigint" />
           <Property Name="BranchCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="saccocode" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="d_Price">
           <Key>
@@ -2907,6 +2908,22 @@ warning 6002: The table/view 'MORINGA.dbo.d_supplier_standingorder' does not hav
           <Property Name="complete" Type="int" />
           <Property Name="topup" Type="int" />
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MORINGA.dbo.d_SupplierCumlative' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="d_SupplierCumlative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Names" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cummulative" Type="money" />
+          <Property Name="AuditId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="SaccoCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="d_Suppliers">
           <Key>
@@ -6961,7 +6978,8 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
     [d_PreSets].[status4] AS [status4], 
     [d_PreSets].[status5] AS [status5], 
     [d_PreSets].[status6] AS [status6], 
-    [d_PreSets].[BranchCode] AS [BranchCode]
+    [d_PreSets].[BranchCode] AS [BranchCode], 
+    [d_PreSets].[saccocode] AS [saccocode]
     FROM [dbo].[d_PreSets] AS [d_PreSets]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="d_Price2" EntityType="Self.d_Price2" store:Type="Tables" store:Schema="dbo">
@@ -7121,6 +7139,19 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
     [d_supplier_standingorder].[topup] AS [topup], 
     [d_supplier_standingorder].[id] AS [id]
     FROM [dbo].[d_supplier_standingorder] AS [d_supplier_standingorder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="d_SupplierCumlative" EntityType="Self.d_SupplierCumlative" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [d_SupplierCumlative].[Id] AS [Id], 
+    [d_SupplierCumlative].[SNo] AS [SNo], 
+    [d_SupplierCumlative].[Names] AS [Names], 
+    [d_SupplierCumlative].[Cummulative] AS [Cummulative], 
+    [d_SupplierCumlative].[AuditId] AS [AuditId], 
+    [d_SupplierCumlative].[Date] AS [Date], 
+    [d_SupplierCumlative].[SaccoCode] AS [SaccoCode], 
+    [d_SupplierCumlative].[Branch] AS [Branch], 
+    [d_SupplierCumlative].[ProductType] AS [ProductType]
+    FROM [dbo].[d_SupplierCumlative] AS [d_SupplierCumlative]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="d_SupplyDeducTrans" EntityType="Self.d_SupplyDeducTrans" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -11102,6 +11133,7 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <Property Name="status5" Type="Int64" />
           <Property Name="status6" Type="Int64" />
           <Property Name="BranchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="saccocode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_Price2">
           <Key>
@@ -11290,6 +11322,20 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <Property Name="complete" Type="Int32" />
           <Property Name="topup" Type="Int32" />
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="d_SupplierCumlative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Names" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cummulative" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AuditId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="SaccoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="d_SupplyDeducTrans">
           <Key>
@@ -12677,6 +12723,7 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
           <EntitySet Name="d_smssettings" EntityType="Self.d_smssettings" />
           <EntitySet Name="d_supplier_deduc" EntityType="Self.d_supplier_deduc" />
           <EntitySet Name="d_supplier_standingorder" EntityType="Self.d_supplier_standingorder" />
+          <EntitySet Name="d_SupplierCumlative" EntityType="Self.d_SupplierCumlative" />
           <EntitySet Name="d_SupplyDeducTrans" EntityType="Self.d_SupplyDeducTrans" />
           <EntitySet Name="d_tbl_trends" EntityType="Self.d_tbl_trends" />
           <EntitySet Name="d_tmpEnquery" EntityType="Self.d_tmpEnquery" />
@@ -15753,6 +15800,7 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
                 <ScalarProperty Name="status5" ColumnName="status5" />
                 <ScalarProperty Name="status6" ColumnName="status6" />
                 <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="saccocode" ColumnName="saccocode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15929,6 +15977,21 @@ warning 6002: The table/view 'MORINGA.dbo.Zones' does not have a primary key def
                 <ScalarProperty Name="complete" ColumnName="complete" />
                 <ScalarProperty Name="topup" ColumnName="topup" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="d_SupplierCumlative">
+            <EntityTypeMapping TypeName="MobileBanking_API.Models.d_SupplierCumlative">
+              <MappingFragment StoreEntitySet="d_SupplierCumlative">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="Cummulative" ColumnName="Cummulative" />
+                <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SaccoCode" ColumnName="SaccoCode" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

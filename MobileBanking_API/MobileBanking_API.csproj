@@ -553,6 +553,9 @@
     <Compile Include="Models\d_smssettings.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\d_SupplierCumlative.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\d_Suppliers.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>

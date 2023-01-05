@@ -31,5 +31,6 @@ namespace MobileBanking_API.Models
         public Nullable<long> status5 { get; set; }
         public Nullable<long> status6 { get; set; }
         public string BranchCode { get; set; }
+        public string saccocode { get; set; }
     }
 }

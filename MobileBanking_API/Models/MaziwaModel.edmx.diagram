@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="82b00289dc6f47cfb8d89dfb62697aae" Name="Diagram1">
+      <Diagram DiagramId="7cc224b7718e4155853b1f6f697713c6" Name="Diagram1">
         <EntityTypeShape EntityType="MobileBanking_API.Models.C__EFMigrationsHistory" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.ag_Products" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.ag_Receipts" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
@@ -166,26 +166,27 @@
         <EntityTypeShape EntityType="MobileBanking_API.Models.d_smssettings" Width="1.5" PointX="40.75" PointY="34.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.d_supplier_deduc" Width="1.5" PointX="40.75" PointY="37.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.d_supplier_standingorder" Width="1.5" PointX="20.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_SupplyDeducTrans" Width="1.5" PointX="22.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tbl_trends" Width="1.5" PointX="24.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tmpEnquery" Width="1.5" PointX="26.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tmpTransEnquery" Width="1.5" PointX="28.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_trans_frate" Width="1.5" PointX="34.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_TransDetailed" Width="1.5" PointX="42.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_TransMode" Width="1.5" PointX="0.75" PointY="42.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Transport" Width="1.5" PointX="2.75" PointY="42.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Transport_Deduc" Width="1.5" PointX="42.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_transport_standingorder" Width="1.5" PointX="42.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Type" Width="1.5" PointX="42.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.d_VehicleTill" Width="1.5" PointX="42.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.DispatchBalancing" Width="1.5" PointX="42.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.DRAWNSTOCK" Width="1.5" PointX="42.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.EasyMa_policies" Width="1.5" PointX="42.75" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.EmpBenefit" Width="1.5" PointX="30.75" PointY="42.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.EmployeesDed" Width="1.5" PointX="42.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.EntitlementType" Width="1.5" PointX="42.75" PointY="38.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.ExcelDump" Width="1.5" PointX="42.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.FLMD" Width="1.5" PointX="16.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_SupplierCumlative" Width="1.5" PointX="22.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_SupplyDeducTrans" Width="1.5" PointX="24.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tbl_trends" Width="1.5" PointX="26.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tmpEnquery" Width="1.5" PointX="28.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_tmpTransEnquery" Width="1.5" PointX="34.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_trans_frate" Width="1.5" PointX="42.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_TransDetailed" Width="1.5" PointX="0.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_TransMode" Width="1.5" PointX="2.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Transport" Width="1.5" PointX="42.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Transport_Deduc" Width="1.5" PointX="42.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_transport_standingorder" Width="1.5" PointX="42.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_Type" Width="1.5" PointX="42.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.d_VehicleTill" Width="1.5" PointX="42.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.DispatchBalancing" Width="1.5" PointX="42.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.DRAWNSTOCK" Width="1.5" PointX="42.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.EasyMa_policies" Width="1.5" PointX="30.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.EmpBenefit" Width="1.5" PointX="42.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.EmployeesDed" Width="1.5" PointX="42.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.EntitlementType" Width="1.5" PointX="16.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.ExcelDump" Width="1.5" PointX="40.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.FLMD" Width="1.5" PointX="42.75" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.FLMDCrop" Width="1.5" PointX="44.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.FLMDLand" Width="1.5" PointX="44.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.GLedger" Width="1.5" PointX="44.75" PointY="8.75" IsExpanded="true" />
@@ -198,42 +199,42 @@
         <EntityTypeShape EntityType="MobileBanking_API.Models.Matchedreport" Width="1.5" PointX="44.75" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.milkcontrol2" Width="1.5" PointX="44.75" PointY="38.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.Milktransfer" Width="1.5" PointX="44.75" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Mpesab" Width="1.5" PointX="4.75" PointY="45.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.param" Width="1.5" PointX="12.75" PointY="45.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.passwordhistory" Width="1.5" PointX="24.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Mpesab" Width="1.5" PointX="2.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.param" Width="1.5" PointX="4.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.passwordhistory" Width="1.5" PointX="12.75" PointY="45.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.PaymentBooking" Width="1.5" PointX="26.75" PointY="45.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.PaySlip" Width="1.5" PointX="32.75" PointY="45.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.PERIOD" Width="1.5" PointX="34.75" PointY="45.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileBanking_API.Models.PettyCash" Width="1.5" PointX="36.75" PointY="45.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.QBMP" Width="1.5" PointX="38.75" PointY="45.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Qsetup" Width="1.5" PointX="40.75" PointY="45.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.ReceiptBooking" Width="1.5" PointX="46.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.reportpath" Width="1.5" PointX="46.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Route" Width="1.5" PointX="46.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.serialno" Width="1.5" PointX="46.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Session" Width="1.5" PointX="46.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.SharesCategory" Width="1.5" PointX="46.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.sisold" Width="1.5" PointX="46.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.SMSSubscription" Width="1.5" PointX="46.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.sno" Width="1.5" PointX="46.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.StandingOrder" Width="1.5" PointX="28.75" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.SubCounty" Width="1.5" PointX="46.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Swift_Messages" Width="1.5" PointX="46.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.SYSPARAM" Width="1.5" PointX="46.75" PointY="38.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.tbbalance" Width="1.5" PointX="46.75" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.tbl_usermenus" Width="1.5" PointX="0.75" PointY="47.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Tchp_Rate" Width="1.5" PointX="18.75" PointY="47.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.TEMPCASHBOOK" Width="1.5" PointX="20.75" PointY="47.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.tempGlTransaction" Width="1.5" PointX="42.75" PointY="47.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.TEMTTBBALANCE" Width="1.5" PointX="48.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.TMPCASHBOOK" Width="1.5" PointX="48.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Transaction" Width="1.5" PointX="48.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.TransCode" Width="1.5" PointX="48.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.TransportersBalancing" Width="1.5" PointX="48.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.UserAccount" Width="1.5" PointX="48.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.UserAccounts1" Width="1.5" PointX="22.75" PointY="48.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Ward" Width="1.5" PointX="48.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileBanking_API.Models.Zone" Width="1.5" PointX="48.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.QBMP" Width="1.5" PointX="46.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Qsetup" Width="1.5" PointX="46.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.ReceiptBooking" Width="1.5" PointX="46.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.reportpath" Width="1.5" PointX="46.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Route" Width="1.5" PointX="14.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.serialno" Width="1.5" PointX="46.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Session" Width="1.5" PointX="16.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.SharesCategory" Width="1.5" PointX="46.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.sisold" Width="1.5" PointX="46.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.SMSSubscription" Width="1.5" PointX="22.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.sno" Width="1.5" PointX="46.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.StandingOrder" Width="1.5" PointX="46.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.SubCounty" Width="1.5" PointX="28.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Swift_Messages" Width="1.5" PointX="46.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.SYSPARAM" Width="1.5" PointX="46.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.tbbalance" Width="1.5" PointX="46.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.tbl_usermenus" Width="1.5" PointX="18.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Tchp_Rate" Width="1.5" PointX="38.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.TEMPCASHBOOK" Width="1.5" PointX="48.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.tempGlTransaction" Width="1.5" PointX="48.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.TEMTTBBALANCE" Width="1.5" PointX="48.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.TMPCASHBOOK" Width="1.5" PointX="48.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Transaction" Width="1.5" PointX="48.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.TransCode" Width="1.5" PointX="48.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.TransportersBalancing" Width="1.5" PointX="48.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.UserAccount" Width="1.5" PointX="48.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.UserAccounts1" Width="1.5" PointX="48.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Ward" Width="1.5" PointX="48.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileBanking_API.Models.Zone" Width="1.5" PointX="48.75" PointY="43.75" IsExpanded="true" />
         <AssociationConnector Association="MobileBanking_API.Models.FK_BillDetails_Bills_BillId" ManuallyRouted="false" />
         <AssociationConnector Association="MobileBanking_API.Models.FK_BillJournals_Bills_BillId" ManuallyRouted="false" />
         <AssociationConnector Association="MobileBanking_API.Models.FK_CInvoiceDetails_CInvoices_CInvoiceId" ManuallyRouted="false" />
