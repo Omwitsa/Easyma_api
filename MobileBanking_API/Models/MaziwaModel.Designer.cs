@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Newtech\SourceCode\CSharp\Easyma\Easyma_api\MobileBanking_API\Models\MaziwaModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\New folder\Easyma_api\MobileBanking_API\Models\MaziwaModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

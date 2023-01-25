@@ -24,7 +24,29 @@ namespace MobileBanking_API.Controllers
 		{
 			try
 			{
-				var intake = intakes.FirstOrDefault();
+                var productIntakeBkps = new List<d_ProductIntakeBkp>();
+                intakes.ForEach(i =>
+                {
+                    var transDate = Convert.ToDateTime(i.Dates);
+                    decimal.TryParse(i.Qty, out decimal qty);
+                    productIntakeBkps.Add(new d_ProductIntakeBkp
+                    {
+                        Sno = i.Sup,
+                        Product = i.Product,
+                        Qnty = qty,
+                        Date = transDate,
+                        TransCode = i.Auditid,
+                        AuditDate = DateTime.Now
+                    });
+                });
+
+                if (productIntakeBkps.Any())
+                {
+                    db.d_ProductIntakeBkp.AddRange(productIntakeBkps);
+                    await db.SaveChangesAsync();
+                }
+
+                var intake = intakes.FirstOrDefault();
                 var products = $"SELECT * FROM d_Price WHERE Products = '{intake.Product}' AND SaccoCode = '{intake.SaccoCode}'";
                 var product = await db.Database.SqlQuery<d_Price>(products).FirstOrDefaultAsync();
                 var productIntakes = new List<ProductIntake>();

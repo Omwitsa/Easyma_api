@@ -46,5 +46,7 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> CLINICAL { get; set; }
         public Nullable<decimal> VARIANCE { get; set; }
         public Nullable<decimal> CurryForward { get; set; }
+        public Nullable<decimal> extension { get; set; }
+        public Nullable<decimal> SMS { get; set; }
     }
 }

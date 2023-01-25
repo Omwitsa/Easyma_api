@@ -25,11 +25,13 @@ namespace MobileBanking_API.Models
         public string PRICEEACH { get; set; }
         public string MONTH { get; set; }
         public string YEAR { get; set; }
+        public string BranchF { get; set; }
         public string Branch { get; set; }
         public Nullable<int> updated { get; set; }
         public string Buying { get; set; }
         public Nullable<int> AI { get; set; }
         public string commission { get; set; }
         public string saccocode { get; set; }
+        public Nullable<System.DateTime> auditdatetime { get; set; }
     }
 }

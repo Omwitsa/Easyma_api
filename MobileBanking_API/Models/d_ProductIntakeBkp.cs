@@ -12,16 +12,14 @@ namespace MobileBanking_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class d_SupplierCumlative
+    public partial class d_ProductIntakeBkp
     {
         public long Id { get; set; }
-        public string SNo { get; set; }
-        public string Names { get; set; }
-        public Nullable<decimal> Cummulative { get; set; }
-        public string AuditId { get; set; }
+        public string Sno { get; set; }
+        public string Product { get; set; }
+        public Nullable<decimal> Qnty { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public string SaccoCode { get; set; }
-        public string Branch { get; set; }
-        public string ProductType { get; set; }
+        public string TransCode { get; set; }
+        public Nullable<System.DateTime> AuditDate { get; set; }
     }
 }

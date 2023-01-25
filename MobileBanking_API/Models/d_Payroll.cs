@@ -61,5 +61,7 @@ namespace MobileBanking_API.Models
         public Nullable<decimal> AI { get; set; }
         public Nullable<decimal> Tractor { get; set; }
         public Nullable<decimal> CurryForward { get; set; }
+        public Nullable<decimal> extension { get; set; }
+        public Nullable<decimal> SMS { get; set; }
     }
 }

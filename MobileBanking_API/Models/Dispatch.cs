@@ -21,5 +21,7 @@ namespace MobileBanking_API.Models
         public decimal Dispatchkgs { get; set; }
         public decimal TIntake { get; set; }
         public string auditid { get; set; }
+        public string Remarks { get; set; }
+        public string Branch { get; set; }
     }
 }

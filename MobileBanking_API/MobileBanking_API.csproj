@@ -529,6 +529,9 @@
     <Compile Include="Models\d_PriceBranch.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\d_ProductIntakeBkp.cs">
+      <DependentUpon>MaziwaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\d_Quality.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
@@ -551,9 +554,6 @@
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\d_smssettings.cs">
-      <DependentUpon>MaziwaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\d_SupplierCumlative.cs">
       <DependentUpon>MaziwaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\d_Suppliers.cs">

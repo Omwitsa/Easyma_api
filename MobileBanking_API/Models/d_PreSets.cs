@@ -15,10 +15,10 @@ namespace MobileBanking_API.Models
     public partial class d_PreSets
     {
         public long Id { get; set; }
-        public Nullable<long> SNo { get; set; }
+        public string SNo { get; set; }
         public string Deduction { get; set; }
         public string Remark { get; set; }
-        public string StartDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<decimal> Rate { get; set; }
         public Nullable<bool> Stopped { get; set; }
         public Nullable<System.DateTime> Auditdatetime { get; set; }

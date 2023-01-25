@@ -55,6 +55,7 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_MilkQuality> d_MilkQuality { get; set; }
         public virtual DbSet<d_Payment> d_Payment { get; set; }
         public virtual DbSet<d_Price> d_Price { get; set; }
+        public virtual DbSet<d_ProductIntakeBkp> d_ProductIntakeBkp { get; set; }
         public virtual DbSet<d_Receipts> d_Receipts { get; set; }
         public virtual DbSet<d_Requisition> d_Requisition { get; set; }
         public virtual DbSet<d_SMSCompany> d_SMSCompany { get; set; }
@@ -186,7 +187,6 @@ namespace MobileBanking_API.Models
         public virtual DbSet<d_smssettings> d_smssettings { get; set; }
         public virtual DbSet<d_supplier_deduc> d_supplier_deduc { get; set; }
         public virtual DbSet<d_supplier_standingorder> d_supplier_standingorder { get; set; }
-        public virtual DbSet<d_SupplierCumlative> d_SupplierCumlative { get; set; }
         public virtual DbSet<d_SupplyDeducTrans> d_SupplyDeducTrans { get; set; }
         public virtual DbSet<d_tbl_trends> d_tbl_trends { get; set; }
         public virtual DbSet<d_tmpEnquery> d_tmpEnquery { get; set; }
