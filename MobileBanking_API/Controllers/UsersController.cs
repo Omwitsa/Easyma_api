@@ -150,34 +150,34 @@ namespace MobileBanking_API.Controllers
                     });
                 }
 
-                var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-                var endDate = startDate.AddMonths(1).AddDays(-1);
-                var monthlyIntakes = await db.ProductIntakes.Where(s => s.SaccoCode == intake.SaccoCode
-                && s.TransDate >= startDate && s.TransDate <= endDate).ToListAsync();
+                //var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                //var endDate = startDate.AddMonths(1).AddDays(-1);
+                //var monthlyIntakes = await db.ProductIntakes.Where(s => s.SaccoCode == intake.SaccoCode
+                //&& s.TransDate >= startDate && s.TransDate <= endDate).ToListAsync();
 
-                var supIntakes = productIntakes.GroupBy(i => i.Sno).ToList();
-                supIntakes.ForEach(i =>
-                {
-                    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Key && s.scode == intake.SaccoCode);
-                    if (suppliers != null)
-                    {
-                        var qty = i.Sum(p => p.QSupplied);
-                        var commulated = monthlyIntakes.Where(m => m.Sno == i.Key).Sum(m => m.QSupplied);
-                        var content = $"You have supplied {qty} kgs to {intake.SaccoCode}. Your commulated {commulated + qty}";
+                //var supIntakes = productIntakes.GroupBy(i => i.Sno).ToList();
+                //supIntakes.ForEach(i =>
+                //{
+                //    var suppliers = db.d_Suppliers.FirstOrDefault(s => s.SNo.ToString() == i.Key && s.scode == intake.SaccoCode);
+                //    if (suppliers != null)
+                //    {
+                //        var qty = i.Sum(p => p.QSupplied);
+                //        var commulated = monthlyIntakes.Where(m => m.Sno == i.Key).Sum(m => m.QSupplied);
+                //        var content = $"You have supplied {qty} kgs to {intake.SaccoCode}. Your commulated {commulated + qty}";
 
-                        db.Messages.Add(new Message
-                        {
-                            Telephone = suppliers.PhoneNo,
-                            Content = content,
-                            ProcessTime = DateTime.UtcNow.AddHours(3).ToString(),
-                            MsgType = "Outbox",
-                            Replied = false,
-                            DateReceived = DateTime.UtcNow.AddHours(3),
-                            Source = intake.Auditid,
-                            Code = intake.SaccoCode
-                        });
-                    }
-                });
+                //        db.Messages.Add(new Message
+                //        {
+                //            Telephone = suppliers.PhoneNo,
+                //            Content = content,
+                //            ProcessTime = DateTime.UtcNow.AddHours(3).ToString(),
+                //            MsgType = "Outbox",
+                //            Replied = false,
+                //            DateReceived = DateTime.UtcNow.AddHours(3),
+                //            Source = intake.Auditid,
+                //            Code = intake.SaccoCode
+                //        });
+                //    }
+                //});
                 db.ProductIntakes.AddRange(productIntakes);
                 var result = await db.SaveChangesAsync();
 
@@ -368,8 +368,8 @@ namespace MobileBanking_API.Controllers
                     .Select(t => t.Sno.ToUpper());
 
                 IQueryable<d_Suppliers> supplierList = db.d_Suppliers;
-                if (!string.IsNullOrEmpty(transCode))
-                    supplierList = supplierList.Where(s => routeFarmers.Contains(s.SNo.ToUpper()));
+                //if (!string.IsNullOrEmpty(transCode))
+                //    supplierList = supplierList.Where(s => routeFarmers.Contains(s.SNo.ToUpper()));
 
                 var suppliers = await supplierList
                     .Select(s => new SupplierVm
